@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>CHUDLINGPONG BANGLADESH — ভ্রমণ পাসপোর্ট | Travel Passport</title>
+<meta name="description" content="A free digital travel passport for Bangladesh. Collect stamps for the places you have visited and download your passport as a souvenir.">
+<meta name="theme-color" content="#0a3528">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230f4d3a' stroke='%23c8a24a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23c0392b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --green:#0f4d3a;--green2:#1b6b4f;--green3:#0a3528;--cream:#f7f0df;--paper:#fcf8ec;
+  --gold:#c8a24a;--gold2:#e7c874;--ink:#1c2923;--muted:#566860;--red:#b3261e;--line:#e3d9bf;
+  --radius:18px;--shadow:0 10px 28px rgba(15,40,30,.14);
+  --ff:'Noto Sans Bengali','Hind Siliguri','Kalpurush','Nirmala UI','Siyam Rupali','Vrinda','Bangla MN','Bengali Sangam MN',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --ffs:'Noto Serif Bengali','Kalpurush','Nirmala UI','Siyam Rupali','Vrinda',Georgia,'Times New Roman',serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:76px}
+body{margin:0;font-family:var(--ff);color:var(--ink);line-height:1.65;overflow-x:hidden;
+  background:radial-gradient(900px 420px at 8% -8%,#fff9e6 0,transparent 62%),repeating-linear-gradient(45deg,rgba(200,162,74,.05) 0 2px,transparent 2px 14px),var(--cream)}
+img,svg{max-width:100%}
+h1,h2,h3{font-family:var(--ffs);line-height:1.25;margin:0}
+a{color:var(--green2)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 14px;border-radius:8px;z-index:300}
+.skip:focus{left:8px}
+.container{width:min(1180px,calc(100% - 32px));margin-inline:auto}
+[hidden]{display:none!important}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:9px 18px;border-radius:999px;border:2px solid transparent;font:inherit;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s;line-height:1.2;text-align:center}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.16)}
+.btn:active{transform:translateY(0)}
+.btn.primary{background:var(--green);color:#fff;border-color:var(--green)}
+.btn.primary:hover{background:var(--green2)}
+.btn.gold{background:linear-gradient(135deg,#f1d98c,var(--gold));color:#2a2108;border-color:#a8832e}
+.btn.ghost{background:transparent;color:var(--green);border-color:var(--green)}
+.btn.ghost-l{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+.btn.danger{background:#fff;color:var(--red);border-color:var(--red)}
+.btn.sm{min-height:40px;padding:6px 14px;font-size:14px}
+.btn.lg{min-height:52px;padding:12px 26px;font-size:17px}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.icon-btn{width:44px;height:44px;border-radius:12px;border:2px solid rgba(255,255,255,.5);background:transparent;color:#fff;font-size:22px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(10,53,40,.97);backdrop-filter:blur(8px);color:#fff;border-bottom:3px solid var(--gold)}
+.hdr-in{display:flex;align-items:center;gap:14px;min-height:66px;position:relative}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+.logo-mark svg{width:42px;height:42px;display:block}
+.logo-txt{display:flex;flex-direction:column;line-height:1.1;font-family:var(--ffs)}
+.logo-txt b{letter-spacing:.12em;font-size:15px}
+.logo-txt i{font-style:normal;letter-spacing:.3em;font-size:10px;color:var(--gold2)}
+nav{margin-left:auto;display:flex;align-items:center;gap:6px}
+nav a:not(.btn){color:#eaf3ee;text-decoration:none;padding:8px 12px;border-radius:999px;font-weight:600;font-size:15px}
+nav a:not(.btn):hover{background:rgba(255,255,255,.12)}
+.nav-toggle{display:none;margin-left:auto}
+@media(max-width:940px){
+  .nav-toggle{display:inline-flex}
+  nav{position:absolute;top:100%;left:-16px;right:-16px;flex-direction:column;align-items:stretch;background:var(--green3);padding:12px 16px 18px;display:none;border-bottom:3px solid var(--gold);gap:8px}
+  nav.open{display:flex}
+  nav a:not(.btn){padding:12px 14px;font-size:17px}
+}
+
+/* hero */
+.hero{background:linear-gradient(160deg,var(--green3),var(--green) 60%,#175c45);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(231,200,121,.07) 0 2px,transparent 2px 22px);pointer-events:none}
+.hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:56px 0 64px;position:relative}
+.eyebrow{margin:0 0 12px;color:var(--gold2);font-weight:700;letter-spacing:.06em;font-size:14px}
+.hero h1{font-size:clamp(32px,5.4vw,58px);color:#fff;text-wrap:balance}
+.hero-sub{font-family:var(--ffs);font-size:clamp(18px,2.4vw,26px);color:var(--gold2);margin:10px 0 0}
+.hero-desc{max-width:56ch;margin:18px 0 0;color:#e1eee7;font-size:17px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.counters{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 0}
+.counters>div{background:rgba(255,255,255,.09);border:1px solid rgba(231,200,121,.45);border-radius:16px;padding:12px 20px;min-width:150px}
+.counters dt{font-size:13px;color:#cfe3d8}
+.counters dd{margin:0;font-family:var(--ffs);font-size:36px;font-weight:700;color:var(--gold2);line-height:1.15}
+.hero-vis{position:relative;max-width:360px;width:100%;margin:0 auto;padding:10px 0 20px}
+.hero-cover{transform:rotate(-4deg);filter:drop-shadow(0 22px 30px rgba(0,0,0,.45))}
+.hero-cover svg{display:block;width:100%;height:auto;border-radius:12px}
+.hs{position:absolute;width:62%;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35));animation:float 6s ease-in-out infinite}
+.hs svg{display:block;width:100%;height:auto;background:#fcf8ec;border-radius:14px;padding:4px}
+.hs1{right:-12%;top:6%;rotate:7deg}.hs2{left:-14%;top:36%;rotate:-8deg;animation-delay:-2s}.hs3{right:-8%;bottom:20%;rotate:5deg;animation-delay:-4s}.hs4{left:-6%;bottom:-2%;rotate:-5deg;animation-delay:-1s;width:56%}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@media(max-width:860px){.hero-in{grid-template-columns:1fr;padding:36px 0 48px}.hero-vis{max-width:300px;margin-top:10px}.hs1{right:-8%}.hs2{left:-8%}}
+
+/* sections */
+.sec{padding:56px 0}
+.sec-head{margin-bottom:26px;max-width:70ch}
+.sec-head h2{font-size:clamp(26px,3.6vw,38px);color:var(--green)}
+.sec-head p{margin:8px 0 0;color:var(--muted);font-size:17px}
+.panel{background:#fffdf5;border:2px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow)}
+.builder-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px;align-items:start}
+.builder-grid .preview{order:2}.builder-grid .controls{order:1}
+@media(max-width:900px){.builder-grid{grid-template-columns:minmax(0,1fr)}.builder-grid .preview{order:1}.builder-grid .controls{order:2}}
+.field{margin-bottom:16px}
+label.lbl,.legend{display:block;font-weight:700;font-size:15px;margin-bottom:6px;color:var(--green)}
+input[type=text],input[type=search],select{width:100%;min-height:46px;padding:9px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;font:inherit;color:var(--ink)}
+input[type=text]:focus,input[type=search]:focus,select:focus{border-color:var(--green2)}
+.static-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.static-grid div{background:var(--paper);border:1px dashed var(--line);border-radius:12px;padding:8px 12px}
+.static-grid small{display:block;color:var(--muted);font-size:12px}
+.static-grid b{font-size:15px}
+.hint{font-size:13px;color:var(--muted);margin:4px 0 0}
+fieldset{border:0;margin:0 0 16px;padding:0;min-width:0}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;width:78px;cursor:pointer;text-align:center;font-size:12px;line-height:1.25}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.opt .swatch,.opt .pv{width:54px;height:54px;border-radius:14px;border:3px solid transparent;box-shadow:0 0 0 2px var(--line);transition:box-shadow .15s,transform .15s;display:block}
+.opt .pv{background:none}
+.opt:hover .swatch,.opt:hover .pv{transform:translateY(-2px)}
+.opt input:checked~.swatch,.opt input:checked~.pv{box-shadow:0 0 0 3px var(--green2);border-color:#fff}
+.opt input:checked~.otxt{font-weight:800;color:var(--green)}
+.opt input:focus-visible~.swatch,.opt input:focus-visible~.pv{outline:3px solid var(--gold);outline-offset:3px}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px}
+.tabs{display:flex;gap:8px;margin-bottom:14px;background:var(--paper);padding:5px;border-radius:999px;border:1px solid var(--line)}
+.tabs button{flex:1;min-height:42px;border:0;border-radius:999px;background:transparent;font:inherit;font-weight:700;color:var(--muted);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--green);color:#fff}
+.stage{width:min(100%,400px);margin:0 auto;perspective:1200px}
+.stage:focus-visible{outline-offset:6px}
+.pass-page{filter:drop-shadow(0 16px 24px rgba(15,40,30,.3))}
+.pass-page svg{display:block;width:100%;height:auto;border-radius:10px;aspect-ratio:480/680}
+.pass-page.flip{animation:flip .38s ease}
+@keyframes flip{from{opacity:.2;transform:rotateY(-14deg) translateX(10px)}to{opacity:1;transform:none}}
+.pager{display:flex;align-items:center;justify-content:center;gap:12px;margin:16px 0}
+.pager span{min-width:130px;text-align:center;font-weight:700;color:var(--green)}
+.dl-row{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.dl-row .btn.lg{width:100%}
+
+/* stats */
+.stats{margin-top:28px}
+.stat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.sc{background:#fffdf5;border:2px solid var(--line);border-radius:16px;padding:14px 16px}
+.sc small{display:block;color:var(--muted);font-size:13px}
+.sc b{font-family:var(--ffs);font-size:30px;color:var(--green);line-height:1.2}
+.sc.hl{background:var(--green);border-color:var(--green)}.sc.hl small{color:#cfe3d8}.sc.hl b{color:var(--gold2)}
+.prog{margin:18px 0}
+.prog-top{display:flex;justify-content:space-between;font-weight:700;margin-bottom:6px}
+.bar{height:14px;border-radius:999px;background:#e8dfc4;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green2),var(--gold));border-radius:999px;transition:width .5s ease}
+.divbars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px 22px}
+.divbars .row{display:grid;grid-template-columns:90px 1fr auto;gap:10px;align-items:center;font-size:14px}
+.divbars .bar{height:9px}
+
+/* explore */
+.toolbar{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:12px;align-items:end}
+.search-wrap{position:relative}
+.search-wrap input{padding-right:48px}
+.clr-x{position:absolute;right:4px;bottom:3px;width:40px;height:40px;border:0;background:transparent;font-size:22px;color:var(--muted);cursor:pointer;border-radius:50%}
+.tool2{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0}
+.chk-line{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;cursor:pointer}
+.chk-line input{width:22px;height:22px;accent-color:var(--green)}
+.count{font-weight:700;color:var(--green);margin:6px 0 14px}
+@media(max-width:980px){.toolbar{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}}
+@media(max-width:520px){.toolbar{grid-template-columns:1fr}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;list-style:none;margin:0;padding:0}
+@media(max-width:560px){.grid{grid-template-columns:1fr 1fr;gap:10px}}
+@media(max-width:380px){.grid{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;gap:8px;position:relative;height:100%;background:#fffdf5;border:2px solid var(--line);border-radius:18px;padding:10px 12px 12px;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s,background .15s;content-visibility:auto;contain-intrinsic-size:auto 330px}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.card .chk{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer;z-index:2}
+.card:has(.chk:focus-visible){outline:3px solid var(--gold);outline-offset:3px}
+.card.sel{border-color:var(--green2);background:#edf7f1;box-shadow:0 0 0 3px rgba(27,107,79,.2)}
+.card.pop{animation:pop .5s ease}
+@keyframes pop{0%{transform:scale(.96)}50%{transform:scale(1.04)}100%{transform:scale(1)}}
+.thumb-box{background:var(--paper);border:1px dashed var(--line);border-radius:12px;padding:2px;transition:filter .2s,opacity .2s}
+.thumb{display:block;width:100%;height:auto}
+.card:not(.sel) .thumb-box{filter:grayscale(.9);opacity:.5}
+.check{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;border:2px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;color:transparent;z-index:1;pointer-events:none}
+.card.sel .check{background:var(--green2);border-color:var(--green2);color:#fff}
+.cbody{display:flex;flex-direction:column;gap:2px}
+.cbody .n1{font-family:var(--ffs);font-weight:700;font-size:17px;line-height:1.3;color:var(--ink)}
+.cbody .n2{font-size:14px;color:var(--muted)}
+.cbody .meta{font-size:13px;color:var(--green2);font-weight:600}
+.cbody .desc{font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{background:#f1e8cc;color:#5b4a14;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600}
+.chip.d{background:#e2eefb;color:#1d4f91}
+.empty{text-align:center;padding:48px 16px;background:#fffdf5;border:2px dashed var(--line);border-radius:22px}
+.empty h3{color:var(--green);margin-bottom:6px}
+.more-wrap{text-align:center;margin:24px 0 0}
+
+/* about / footer */
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.about-grid .panel p{margin:8px 0 0}
+.about-grid h3{color:var(--green);font-size:20px}
+footer{background:var(--green3);color:#dcebe3;padding:36px 0 40px;margin-top:20px;border-top:4px solid var(--gold)}
+footer .disc{border:1px solid rgba(231,200,121,.6);border-radius:14px;padding:14px 18px;background:rgba(255,255,255,.06);color:#fff;font-weight:600}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:20px}
+footer h3{color:var(--gold2);font-size:18px;margin-bottom:6px}
+footer p{margin:0;font-size:15px}
+.copy{margin-top:22px;font-size:13px;color:#a9c2b6}
+#toTop{position:fixed;right:16px;bottom:16px;width:48px;height:48px;border-radius:50%;border:2px solid var(--gold);background:var(--green);color:#fff;font-size:22px;cursor:pointer;z-index:90;box-shadow:var(--shadow)}
+.warn{background:#fff3cd;color:#664d03;padding:10px 16px;text-align:center;font-weight:600;border-bottom:1px solid #e6cf7f}
+
+/* toasts, fx, dialogs */
+#toasts{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:250;display:flex;flex-direction:column;gap:8px;align-items:center;width:min(92vw,420px);pointer-events:none}
+.toast{background:var(--green3);color:#fff;border:1px solid var(--gold);border-radius:14px;padding:11px 18px;font-weight:600;box-shadow:var(--shadow);animation:tin .25s ease;text-align:center}
+.toast.err{background:#7a1f1f;border-color:#e9a0a0}
+@keyframes tin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#fx{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;pointer-events:none}
+#fx.on{display:flex}
+#fx svg{width:min(70vw,300px);height:auto;background:rgba(252,248,236,.94);border-radius:24px;padding:10px;box-shadow:0 20px 50px rgba(0,0,0,.4);animation:slam 1s ease forwards}
+@keyframes slam{0%{transform:scale(2.6) rotate(-10deg);opacity:0}30%{transform:scale(1) rotate(0);opacity:1}80%{opacity:1}100%{transform:scale(1);opacity:0}}
+dialog{border:0;border-radius:22px;padding:0;width:min(560px,92vw);max-height:90vh;overflow:auto;color:var(--ink);background:var(--paper);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(8,28,20,.6)}
+.dlg{padding:24px}
+.dlg h2{font-size:24px;color:var(--green);margin-bottom:10px}
+.dlg ol{padding-left:22px;margin:10px 0}
+.dlg li{margin:6px 0}
+.dlg .btn-row{margin-top:18px}
+.note{background:#fff3cd;border-radius:12px;padding:10px 14px;font-size:14px;margin-top:10px;color:#664d03}
+#printRoot{display:none}
+
+/* print */
+@page{size:148mm 210mm;margin:0}
+@media print{
+  html,body{background:#fff!important;margin:0!important;padding:0!important;height:auto!important;overflow:visible!important}
+  body>*:not(#printRoot){display:none!important}
+  #printRoot{display:block!important}
+  .print-page{width:148mm;height:210mm;overflow:hidden;page-break-after:always;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .print-page:last-child{page-break-after:auto;break-after:auto}
+  .print-page svg{display:block;width:148mm;height:210mm;border-radius:0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="storeWarn" class="warn" role="alert" hidden></div>
+
+<header class="hdr">
+  <div class="container hdr-in">
+    <a class="logo" href="#home" aria-label="CHUDLINGPONG BANGLADESH">
+      <span class="logo-mark" id="logoMark"></span>
+      <span class="logo-txt"><b>CHUDLINGPONG</b><i>BANGLADESH</i></span>
+    </a>
+    <button class="icon-btn nav-toggle" id="navBtn" aria-expanded="false" aria-controls="nav" data-i18n-aria="menu">☰</button>
+    <nav id="nav" data-i18n-aria="nav_label">
+      <a href="#home" data-i18n="nav_home"></a>
+      <a href="#builder" data-i18n="nav_passport"></a>
+      <a href="#explore" data-i18n="nav_explore"></a>
+      <a href="#about" data-i18n="nav_about"></a>
+      <button class="btn ghost-l sm" id="langBtn" type="button"></button>
+      <a class="btn gold sm" href="#builder" data-focus="1" data-i18n="cta_create"></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section id="home" class="hero" aria-labelledby="heroH1">
+  <div class="container hero-in">
+    <div class="hero-copy">
+      <p class="eyebrow">✦ CHUDLINGPONG BANGLADESH ✦</p>
+      <h1 id="heroH1"></h1>
+      <p class="hero-sub" id="heroSub"></p>
+      <p class="hero-desc" data-i18n="hero_desc"></p>
+      <div class="hero-cta">
+        <a class="btn gold lg" href="#builder" data-focus="1" data-i18n="hero_cta"></a>
+        <a class="btn ghost-l lg" href="#explore" data-i18n="hero_cta2"></a>
+      </div>
+      <dl class="counters">
+        <div><dt data-i18n="cnt_total"></dt><dd id="cTotal">0</dd></div>
+        <div><dt data-i18n="cnt_sel"></dt><dd id="cSel">0</dd></div>
+      </dl>
+    </div>
+    <div class="hero-vis" id="heroVis" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section id="builder" class="sec" aria-labelledby="bTitle">
+  <div class="container">
+    <div class="sec-head"><h2 id="bTitle" data-i18n="b_title"></h2><p data-i18n="b_lead"></p></div>
+    <div class="builder-grid">
+      <div class="panel controls">
+        <div class="field">
+          <label class="lbl" for="inName" data-i18n="f_name"></label>
+          <input type="text" id="inName" maxlength="40" autocomplete="off" data-i18n-ph="f_name_ph">
+        </div>
+        <div class="static-grid">
+          <div><small data-i18n="f_title"></small><b data-i18n="f_title_val"></b></div>
+          <div><small data-i18n="f_country"></small><b data-i18n="f_country_val"></b></div>
+          <div style="grid-column:1/-1"><small data-i18n="f_pno"></small><b id="pnoView"></b></div>
+        </div>
+        <fieldset><legend class="legend" data-i18n="f_color"></legend><div class="opts" id="colorOpts"></div></fieldset>
+        <fieldset><legend class="legend" data-i18n="f_pattern"></legend><div class="opts" id="patternOpts"></div></fieldset>
+        <fieldset><legend class="legend" data-i18n="f_emblem"></legend><div class="opts" id="emblemOpts"></div></fieldset>
+        <div class="btn-row">
+          <button class="btn primary" id="btnSave" type="button" data-i18n="btn_save"></button>
+          <button class="btn ghost" id="btnReset" type="button" data-i18n="btn_reset"></button>
+          <button class="btn danger" id="btnNew" type="button" data-i18n="btn_new"></button>
+          <button class="btn ghost" id="btnGuide" type="button" data-i18n="btn_guide"></button>
+        </div>
+      </div>
+
+      <div class="panel preview">
+        <div class="tabs" role="group" data-i18n-aria="view_label">
+          <button type="button" id="tabCover" aria-selected="true" data-i18n="tab_cover"></button>
+          <button type="button" id="tabPages" aria-selected="false" data-i18n="tab_pages"></button>
+        </div>
+        <div class="stage" id="stage" tabindex="0" data-i18n-aria="stage_label"><div class="pass-page" id="pageHost"></div></div>
+        <div class="pager">
+          <button class="btn ghost sm" id="pgPrev" type="button" data-i18n="pg_prev"></button>
+          <span id="pgInd" aria-live="polite"></span>
+          <button class="btn ghost sm" id="pgNext" type="button" data-i18n="pg_next"></button>
+        </div>
+        <div class="dl-row">
+          <button class="btn gold lg" id="btnDownload" type="button" data-i18n="btn_download"></button>
+          <div class="btn-row">
+            <button class="btn ghost" id="btnShare" type="button" data-i18n="btn_share"></button>
+            <button class="btn ghost" id="btnCopy" type="button" data-i18n="btn_copy"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats" aria-labelledby="sTitle">
+      <h2 id="sTitle" style="font-size:26px;color:var(--green);margin-bottom:14px" data-i18n="s_title"></h2>
+      <div id="statsHost"></div>
+    </div>
+  </div>
+</section>
+
+<section id="explore" class="sec" style="padding-top:20px" aria-labelledby="xTitle">
+  <div class="container">
+    <div class="sec-head"><h2 id="xTitle" data-i18n="x_title"></h2><p data-i18n="x_lead"></p></div>
+    <div class="toolbar">
+      <div class="search-wrap">
+        <label class="lbl" for="fQ" data-i18n="x_search"></label>
+        <input type="search" id="fQ" autocomplete="off" data-i18n-ph="x_search_ph">
+        <button class="clr-x" id="fQClear" type="button" data-i18n-aria="x_clear_search" hidden>×</button>
+      </div>
+      <div><label class="lbl" for="fDiv" data-i18n="x_div"></label><select id="fDiv"></select></div>
+      <div><label class="lbl" for="fDist" data-i18n="x_dist"></label><select id="fDist"></select></div>
+      <div><label class="lbl" for="fCat" data-i18n="x_cat"></label><select id="fCat"></select></div>
+      <div><label class="lbl" for="fSort" data-i18n="x_sort"></label><select id="fSort"></select></div>
+    </div>
+    <div class="tool2">
+      <label class="chk-line"><input type="checkbox" id="fOnly"><span data-i18n="x_only"></span></label>
+      <button class="btn primary sm" id="btnSelAll" type="button" data-i18n="x_selall"></button>
+      <button class="btn danger sm" id="btnClearAll" type="button" data-i18n="x_clearall"></button>
+      <button class="btn ghost sm" id="btnClearQ" type="button" data-i18n="x_clear_search"></button>
+      <button class="btn ghost sm" id="btnResetF" type="button" data-i18n="x_reset_f"></button>
+    </div>
+    <p class="count" id="resCount" role="status" aria-live="polite"></p>
+    <ul class="grid" id="grid"></ul>
+    <div id="empty" class="empty" hidden><h3 id="emptyT"></h3><p id="emptyD"></p><button class="btn ghost" id="btnEmptyReset" type="button" data-i18n="x_reset_f"></button></div>
+    <div class="more-wrap"><button class="btn ghost" id="btnMore" type="button" hidden></button></div>
+  </div>
+</section>
+
+<section id="about" class="sec" aria-labelledby="abTitle">
+  <div class="container">
+    <div class="sec-head"><h2 id="abTitle" data-i18n="ab_title"></h2></div>
+    <div class="about-grid">
+      <div class="panel"><h3 data-i18n="ab_h1"></h3><p data-i18n="ab_text"></p></div>
+      <div class="panel"><h3 data-i18n="ab_h2"></h3><p data-i18n="ab_data"></p></div>
+      <div class="panel"><h3 data-i18n="ab_h3"></h3><p data-i18n="ab_stamps"></p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <p class="disc" id="discText"></p>
+    <div class="cols">
+      <div><h3 data-i18n="ab_title"></h3><p data-i18n="ab_text"></p></div>
+      <div><h3 data-i18n="privacy_t"></h3><p data-i18n="privacy_d"></p></div>
+    </div>
+    <p class="copy" data-i18n="ft_rights"></p>
+  </div>
+</footer>
+
+<button id="toTop" type="button" hidden data-i18n-aria="back_top">↑</button>
+<div id="toasts" role="status" aria-live="polite"></div>
+<div id="fx" aria-hidden="true"></div>
+
+<dialog id="dlgConfirm" aria-labelledby="cfT"><div class="dlg">
+  <h2 id="cfT"></h2><p id="cfD"></p>
+  <div class="btn-row"><button class="btn danger" id="cfYes" type="button" data-i18n="cf_yes"></button><button class="btn ghost" id="cfNo" type="button" data-i18n="cf_no"></button></div>
+</div></dialog>
+
+<dialog id="dlgExport" aria-labelledby="exT"><div class="dlg">
+  <h2 id="exT" data-i18n="ex_title"></h2>
+  <p id="exIntro"></p>
+  <h3 style="font-size:17px;margin-top:12px" data-i18n="ex_howto_t"></h3>
+  <ol><li data-i18n="ex_s1"></li><li data-i18n="ex_s2"></li><li data-i18n="ex_s3"></li><li data-i18n="ex_s4"></li></ol>
+  <div class="note" data-i18n="ex_note"></div>
+  <div class="btn-row" style="flex-direction:column;align-items:stretch">
+    <button class="btn gold" id="exPdf" type="button" data-i18n="ex_pdf"></button>
+    <button class="btn primary" id="exPng1" type="button" data-i18n="ex_png1"></button>
+    <button class="btn ghost" id="exPngAll" type="button" data-i18n="ex_pngall"></button>
+    <button class="btn ghost" id="exClose" type="button" data-i18n="ex_close"></button>
+  </div>
+</div></dialog>
+
+<dialog id="dlgGuide" aria-labelledby="gT"><div class="dlg">
+  <h2 id="gT" data-i18n="g_title"></h2>
+  <ol><li data-i18n="g1"></li><li data-i18n="g2"></li><li data-i18n="g3"></li><li data-i18n="g4"></li></ol>
+  <p class="hint" data-i18n="disclaimer"></p>
+  <div class="btn-row"><button class="btn primary" id="gGo" type="button" data-i18n="g_start"></button></div>
+</div></dialog>
+
+<div id="printRoot" aria-hidden="true"></div>
+
+<noscript><p style="padding:20px;text-align:center">This site needs JavaScript. / এই সাইটটি চালাতে জাভাস্ক্রিপ্ট প্রয়োজন।</p></noscript>
+
+<script>
+(function(){
+'use strict';
+
+/* =====================================================================
+   1. DATA — geography, categories and destinations
+   To add a place: append a row to RAW below:
+   [Bengali name, English name, District (must match a district key in GEO),
+    category key, emoji, short description]
+   Stamp style/colour is derived from the row's position, so append new rows
+   at the END of RAW to keep existing stamps unchanged.
+   ===================================================================== */
+const GEO={
+ dhaka:{bn:'ঢাকা',en:'Dhaka',d:[['Dhaka','ঢাকা'],['Gazipur','গাজীপুর'],['Narayanganj','নারায়ণগঞ্জ'],['Narsingdi','নরসিংদী'],['Manikganj','মানিকগঞ্জ'],['Munshiganj','মুন্সিগঞ্জ'],['Tangail','টাঙ্গাইল'],['Kishoreganj','কিশোরগঞ্জ'],['Faridpur','ফরিদপুর'],['Gopalganj','গোপালগঞ্জ'],['Madaripur','মাদারীপুর'],['Rajbari','রাজবাড়ী'],['Shariatpur','শরীয়তপুর']]},
+ chattogram:{bn:'চট্টগ্রাম',en:'Chattogram',d:[['Chattogram','চট্টগ্রাম'],["Cox's Bazar",'কক্সবাজার'],['Rangamati','রাঙ্গামাটি'],['Bandarban','বান্দরবান'],['Khagrachhari','খাগড়াছড়ি'],['Feni','ফেনী'],['Noakhali','নোয়াখালী'],['Lakshmipur','লক্ষ্মীপুর'],['Cumilla','কুমিল্লা'],['Chandpur','চাঁদপুর'],['Brahmanbaria','ব্রাহ্মণবাড়িয়া']]},
+ rajshahi:{bn:'রাজশাহী',en:'Rajshahi',d:[['Rajshahi','রাজশাহী'],['Bogura','বগুড়া'],['Joypurhat','জয়পুরহাট'],['Naogaon','নওগাঁ'],['Natore','নাটোর'],['Chapainawabganj','চাঁপাইনবাবগঞ্জ'],['Pabna','পাবনা'],['Sirajganj','সিরাজগঞ্জ']]},
+ khulna:{bn:'খুলনা',en:'Khulna',d:[['Khulna','খুলনা'],['Bagerhat','বাগেরহাট'],['Satkhira','সাতক্ষীরা'],['Jashore','যশোর'],['Jhenaidah','ঝিনাইদহ'],['Magura','মাগুরা'],['Narail','নড়াইল'],['Kushtia','কুষ্টিয়া'],['Chuadanga','চুয়াডাঙ্গা'],['Meherpur','মেহেরপুর']]},
+ barishal:{bn:'বরিশাল',en:'Barishal',d:[['Barishal','বরিশাল'],['Bhola','ভোলা'],['Jhalokathi','ঝালকাঠি'],['Patuakhali','পটুয়াখালী'],['Pirojpur','পিরোজপুর'],['Barguna','বরগুনা']]},
+ sylhet:{bn:'সিলেট',en:'Sylhet',d:[['Sylhet','সিলেট'],['Moulvibazar','মৌলভীবাজার'],['Habiganj','হবিগঞ্জ'],['Sunamganj','সুনামগঞ্জ']]},
+ rangpur:{bn:'রংপুর',en:'Rangpur',d:[['Rangpur','রংপুর'],['Dinajpur','দিনাজপুর'],['Gaibandha','গাইবান্ধা'],['Kurigram','কুড়িগ্রাম'],['Lalmonirhat','লালমনিরহাট'],['Nilphamari','নীলফামারী'],['Panchagarh','পঞ্চগড়'],['Thakurgaon','ঠাকুরগাঁও']]},
+ mymensingh:{bn:'ময়মনসিংহ',en:'Mymensingh',d:[['Mymensingh','ময়মনসিংহ'],['Jamalpur','জামালপুর'],['Netrokona','নেত্রকোণা'],['Sherpur','শেরপুর']]}
+};
+const CATS=[
+ ['beach','সমুদ্রসৈকত','Beaches','🏖️'],['hills','পাহাড় ও টিলা','Mountains & hills','⛰️'],['forest','বন-জঙ্গল','Forests','🌲'],
+ ['island','দ্বীপ','Islands','🏝️'],['historic','ঐতিহাসিক স্থান','Historical places','🏛️'],['religious','ধর্মীয় ও সাংস্কৃতিক স্থান','Religious & cultural sites','🕌'],
+ ['water','হ্রদ ও নদী','Lakes & rivers','🛶'],['tea','চা-বাগান','Tea gardens','🍃'],['wildlife','বন্যপ্রাণী ও প্রকৃতি','Wildlife & nature','🐅'],['other','অন্যান্য আকর্ষণ','Other attractions','📍']
+];
+const RAW=[
+ /* ---- Dhaka division ---- */
+ ["আহসান মঞ্জিল","Ahsan Manzil","Dhaka","historic","🏛️","Pink riverside palace of the Nawabs of Dhaka, now a museum on the Buriganga."],
+ ["লালবাগ কেল্লা","Lalbagh Fort","Dhaka","historic","🏰","Unfinished 17th-century Mughal fort complex in Old Dhaka."],
+ ["জাতীয় স্মৃতিসৌধ (সাভার)","National Martyrs' Memorial","Dhaka","historic","🕊️","Tall national monument at Savar honouring the martyrs of the 1971 Liberation War."],
+ ["কেন্দ্রীয় শহীদ মিনার","Central Shaheed Minar","Dhaka","historic","🕯️","Monument honouring the martyrs of the 1952 Language Movement."],
+ ["জাতীয় সংসদ ভবন","National Parliament House","Dhaka","other","🏢","Louis Kahn's monumental concrete-and-marble parliament complex."],
+ ["বাংলাদেশ জাতীয় জাদুঘর","Bangladesh National Museum","Dhaka","other","🖼️","Large museum of history, art and natural heritage at Shahbag."],
+ ["তারা মসজিদ","Star Mosque","Dhaka","religious","🕌","Old Dhaka mosque decorated with star-patterned china mosaic."],
+ ["ঢাকেশ্বরী জাতীয় মন্দির","Dhakeshwari National Temple","Dhaka","religious","🛕","The city's best-known Hindu temple, dedicated to Goddess Dhakeshwari."],
+ ["বায়তুল মোকাররম জাতীয় মসজিদ","Baitul Mukarram National Mosque","Dhaka","religious","🕌","Dhaka's national mosque in the Paltan area."],
+ ["রমনা পার্ক","Ramna Park","Dhaka","other","🌳","Historic green park in the middle of the capital."],
+ ["হাতিরঝিল","Hatirjheel","Dhaka","water","🌉","Landscaped lake and bridge waterfront in central Dhaka."],
+ ["আর্মেনীয় গির্জা","Armenian Church","Dhaka","religious","⛪","18th-century church in Armanitola, a relic of Dhaka's Armenian merchants."],
+ ["মুক্তিযুদ্ধ জাদুঘর","Liberation War Museum","Dhaka","historic","🎖️","Museum documenting Bangladesh's 1971 Liberation War."],
+ ["কার্জন হল","Curzon Hall","Dhaka","historic","🏛️","Indo-Saracenic building on the University of Dhaka campus."],
+ ["সদরঘাট","Sadarghat River Port","Dhaka","water","🚢","Busy Buriganga launch terminal with services to the south."],
+ ["জাতীয় বোটানিক্যাল গার্ডেন","National Botanical Garden","Dhaka","other","🌿","Large botanical garden and plant collection at Mirpur."],
+ ["বঙ্গবন্ধু শেখ মুজিব সাফারি পার্ক","Bangabandhu Sheikh Mujib Safari Park","Gazipur","wildlife","🦁","Safari park near Gazipur with wild animals in open enclosures."],
+ ["ভাওয়াল জাতীয় উদ্যান","Bhawal National Park","Gazipur","forest","🌲","Sal-forest national park in the Bhawal region."],
+ ["পানাম নগর","Panam Nagar","Narayanganj","historic","🏚️","Street of 19th-century merchant houses in old Sonargaon."],
+ ["লোক ও কারুশিল্প জাদুঘর, সোনারগাঁও","Sonargaon Folk Art Museum","Narayanganj","other","🏺","Museum of Bengali folk art and crafts at Sonargaon."],
+ ["হাজীগঞ্জ দুর্গ","Hajiganj Fort","Narayanganj","historic","🏰","Mughal-era riverside fort near Narayanganj."],
+ ["ওয়ারী-বটেশ্বর","Wari-Bateshwar","Narsingdi","historic","🏺","Archaeological site with remains of an ancient trading settlement."],
+ ["বালিয়াটি জমিদার বাড়ি","Baliati Palace","Manikganj","historic","🏛️","Zamindar palace at Saturia, now a museum."],
+ ["ইদ্রাকপুর কেল্লা","Idrakpur Fort","Munshiganj","historic","🏰","17th-century Mughal river fort beside the Ichamati."],
+ ["বজ্রযোগিনী (অতীশ দীপঙ্করের জন্মভিটা)","Bajrayogini (Atish Dipankar's Birthplace)","Munshiganj","historic","🗿","Village linked to the Buddhist scholar Atish Dipankar."],
+ ["পদ্মা সেতু","Padma Bridge","Munshiganj","other","🌉","Landmark bridge over the Padma linking Munshiganj and Shariatpur."],
+ ["আতিয়া মসজিদ","Atia Mosque","Tangail","religious","🕌","17th-century terracotta-decorated mosque at Delduar."],
+ ["মধুপুর জাতীয় উদ্যান","Modhupur National Park","Tangail","forest","🌳","Sal-forest park, home to Garo and Koch communities."],
+ ["শোলাকিয়া ঈদগাহ","Sholakia Eidgah","Kishoreganj","religious","🕌","One of the country's largest Eid congregation grounds."],
+ ["জঙ্গলবাড়ী দুর্গ","Jangalbari Fort","Kishoreganj","historic","🏰","Fort associated with the Baro-Bhuiyan chief Isa Khan's family."],
+ ["টুঙ্গিপাড়া সমাধিসৌধ","Tungipara Mausoleum Complex","Gopalganj","historic","🏛️","Memorial complex at Tungipara, birthplace of Sheikh Mujibur Rahman."],
+ ["আড়িয়াল খাঁ নদ","Arial Khan River","Madaripur","water","🛶","Major river flowing through the Madaripur region."],
+ ["গোয়ালন্দ ঘাট","Goalanda Ghat","Rajbari","water","🚢","Historic river port where the Padma and Jamuna meet."],
+ /* ---- Chattogram division ---- */
+ ["কক্সবাজার সমুদ্র সৈকত","Cox's Bazar Sea Beach","Cox's Bazar","beach","🏖️","One of the world's longest natural sandy sea beaches."],
+ ["সেন্ট মার্টিন দ্বীপ","Saint Martin's Island","Cox's Bazar","island","🏝️","Bangladesh's only coral island, off the Teknaf peninsula."],
+ ["ইনানী সৈকত","Inani Beach","Cox's Bazar","beach","🌊","Rocky, coral-strewn beach south of Cox's Bazar."],
+ ["হিমছড়ি জাতীয় উদ্যান","Himchari National Park","Cox's Bazar","forest","🌴","Hill-and-sea park with a waterfall near Cox's Bazar."],
+ ["মহেশখালী দ্বীপ","Maheshkhali Island","Cox's Bazar","island","🏝️","Hilly island with temples and betel-leaf farms."],
+ ["সোনাদিয়া দ্বীপ","Sonadia Island","Cox's Bazar","island","🦀","Crescent-shaped island known for sea birds and crabs."],
+ ["শাহপরীর দ্বীপ","Shah Porir Dwip","Cox's Bazar","island","⛵","Fishing island at the southern tip of the Teknaf peninsula."],
+ ["ফাঁসিয়াখালী বন্যপ্রাণী অভয়ারণ্য","Fasiakhali Wildlife Sanctuary","Cox's Bazar","wildlife","🐘","Forest sanctuary known for Asian elephants."],
+ ["দুলাহাজারা সাফারি পার্ক","Dulahazara Safari Park","Cox's Bazar","wildlife","🦁","Safari park at Chakaria with a wildlife drive."],
+ ["রামু বৌদ্ধ বিহার","Ramu Buddhist Vihara","Cox's Bazar","religious","🛕","Cluster of Buddhist monasteries and temples at Ramu."],
+ ["সাজেক ভ্যালি","Sajek Valley","Rangamati","hills","⛰️","Cloud-level hill valley in the Chittagong Hill Tracts."],
+ ["রাঙ্গামাটি শহর","Rangamati Hill Town","Rangamati","hills","🏞️","Lakeside hill town and gateway to the hill tracts."],
+ ["কাপ্তাই হ্রদ","Kaptai Lake","Rangamati","water","🚤","Bangladesh's largest man-made lake, ringed by hills."],
+ ["ঝুলন্ত সেতু","Rangamati Hanging Bridge","Rangamati","other","🌉","Popular suspension bridge over Kaptai Lake."],
+ ["শুভলং ঝর্ণা","Shuvolong Waterfall","Rangamati","hills","💦","Waterfall and viewpoint near Borkol."],
+ ["রাজবন বিহার","Rajban Vihara","Rangamati","religious","🛕","Well-known Buddhist monastery at Rajasthali."],
+ ["বান্দরবান পাহাড়","Bandarban Hill Town","Bandarban","hills","⛰️","Hill town and base for treks across the Bandarban hills."],
+ ["নীলগিরি","Nilgiri Hills","Bandarban","hills","☁️","Sea-of-clouds viewpoint high in the Bandarban hills."],
+ ["নীলাচল","Nilachal","Bandarban","hills","🌄","Hilltop viewpoint overlooking Bandarban town."],
+ ["বগা লেক","Boga Lake","Bandarban","water","🏞️","Mountain lake high in the Bandarban hills."],
+ ["নাফাখুম জলপ্রপাত","Nafakhum Waterfall","Bandarban","hills","💦","Broad waterfall near the Myanmar border."],
+ ["স্বর্ণমন্দির (বুদ্ধ ধাতু জাদি)","Golden Temple (Buddha Dhatu Jadi)","Bandarban","religious","🛕","Large Buddhist temple complex with golden statues near Bandarban."],
+ ["কেওক্রাডং","Keokradong","Bandarban","hills","⛰️","One of the country's highest peaks, a classic trekking target."],
+ ["চিম্বুক পাহাড়","Chimbuk Hill","Bandarban","hills","☁️","Scenic hill on the Bandarban–Thanchi road."],
+ ["তাজিংডং","Tazing Dong","Bandarban","hills","🏔️","Among Bangladesh's highest peaks, in the Bandarban hills."],
+ ["আলুটিলা গুহা","Alutila Cave","Khagrachhari","hills","🕳️","Natural hill cave near Khagrachhari town."],
+ ["রিছাং ঝর্ণা","Richhang Waterfall","Khagrachhari","hills","💦","Waterfall in the Khagrachhari hills."],
+ ["পতেঙ্গা সমুদ্র সৈকত","Patenga Sea Beach","Chattogram","beach","🏖️","City beach at the mouth of the Karnaphuli river."],
+ ["ফয়'স লেক","Foy's Lake","Chattogram","water","🎡","Hill-ringed artificial lake with a leisure park in Chattogram."],
+ ["চট্টগ্রাম ওয়ার সিমেট্রি","Chattogram War Cemetery","Chattogram","historic","🪦","Commonwealth war cemetery for Second World War casualties."],
+ ["চন্দ্রনাথ পাহাড়","Chandranath Hill","Chattogram","religious","⛰️","Hilltop Hindu pilgrimage site at Sitakunda."],
+ ["সীতাকুণ্ড ইকোপার্ক","Sitakunda Eco Park","Chattogram","forest","🌲","Hill forest park with waterfalls and walking trails."],
+ ["পারকি সৈকত","Parki Beach","Chattogram","beach","🌊","Quiet beach at Anwara across the Karnaphuli."],
+ ["জাতিতাত্ত্বিক জাদুঘর","Ethnological Museum","Chattogram","other","🏺","Museum on the cultures of the country's indigenous peoples."],
+ ["বায়েজিদ বোস্তামী মাজার","Bayazid Bostami Shrine","Chattogram","religious","🕌","Famous shrine and pond with freshwater turtles."],
+ ["সন্দ্বীপ","Sandwip Island","Chattogram","island","🏝️","Large island in the Bay of Bengal off Chattogram."],
+ ["মুহুরী প্রজেক্ট","Muhuri Project","Feni","water","🌊","River sluice-gate project on the Muhuri near Parshuram."],
+ ["নিঝুম দ্বীপ","Nijhum Dweep","Noakhali","island","🦌","Island in the Meghna estuary known for its deer and mangroves."],
+ ["গান্ধী আশ্রম ট্রাস্ট","Gandhi Ashram Trust","Noakhali","historic","🕊️","Memorial ashram at Joyag linked to Mahatma Gandhi's 1946 visit."],
+ ["চর আলেকজান্ডার","Char Alexander","Lakshmipur","beach","🌅","Sandy char beach on the Meghna estuary, known for sunsets."],
+ ["শালবন বিহার","Shalban Vihara","Cumilla","historic","🛕","Ruins of an 8th-century Buddhist monastery at Mainamati."],
+ ["কোটিলা মুড়া","Kotila Mura","Cumilla","historic","🗿","Buddhist stupa site in the Mainamati hills."],
+ ["কুমিল্লা ওয়ার সিমেট্রি","Cumilla War Cemetery","Cumilla","historic","🪦","Commonwealth war cemetery in Cumilla."],
+ ["ধর্মসাগর দিঘি","Dharmasagar Dighi","Cumilla","water","💧","Large historic pond in the middle of Cumilla town."],
+ ["চাঁদপুর নদীবন্দর","Chandpur River Port","Chandpur","water","🐟","River port near the Padma–Meghna confluence, famed for hilsa."],
+ ["আশুগঞ্জ নদীবন্দর","Ashuganj River Port","Brahmanbaria","water","🚢","Meghna river port and ferry hub at Ashuganj."],
+ /* ---- Rajshahi division ---- */
+ ["বরেন্দ্র গবেষণা জাদুঘর","Varendra Research Museum","Rajshahi","other","🏺","Oldest museum in the country, rich in Varendra-region antiquities."],
+ ["পুঠিয়া মন্দির কমপ্লেক্স","Puthia Temple Complex","Rajshahi","religious","🛕","Cluster of terracotta Hindu temples at Puthia."],
+ ["পদ্মা উদ্যান","Padma Garden","Rajshahi","water","🌅","Riverside promenade on the Padma in Rajshahi."],
+ ["শাহ মখদুম মাজার","Shah Makhdum Dargah","Rajshahi","religious","🕌","Revered Sufi shrine in Rajshahi city."],
+ ["মহাস্থানগড়","Mahasthangarh","Bogura","historic","🏛️","Ancient fortified city, one of the earliest urban sites in Bangladesh."],
+ ["ভাসু বিহার","Bhasu Vihara","Bogura","historic","🛕","Buddhist monastery ruins near Mahasthangarh."],
+ ["বেহুলার বাসর ঘর","Behula's Basar Ghar","Bogura","historic","🗿","Ancient structure at Mahasthan tied to the Behula folk tale."],
+ ["পাহাড়পুর বৌদ্ধ বিহার","Paharpur Buddhist Monastery","Naogaon","historic","🛕","Somapura Mahavihara, a UNESCO World Heritage Site."],
+ ["কুসুম্বা মসজিদ","Kusumba Mosque","Naogaon","religious","🕌","16th-century mosque of dark stone and terracotta."],
+ ["নাটোর রাজবাড়ি","Natore Rajbari","Natore","historic","🏛️","Palace complex of the Natore Maharajas."],
+ ["চলনবিল","Chalan Beel","Natore","water","🌾","Vast wetland spreading across Natore, Pabna and Sirajganj."],
+ ["ছোট সোনা মসজিদ","Choto Sona Mosque","Chapainawabganj","religious","🕌","15th-century mosque from the Gaur–Lakhnauti era."],
+ ["হার্ডিঞ্জ ব্রিজ","Hardinge Bridge","Pabna","other","🌉","Historic railway bridge over the Padma at Paksey."],
+ ["বঙ্গবন্ধু যমুনা সেতু","Bangabandhu Jamuna Bridge","Sirajganj","other","🌉","Long road-and-rail bridge across the Jamuna."],
+ ["রবীন্দ্র কাছারিবাড়ি","Rabindra Kachari Bari","Sirajganj","historic","🏛️","Estate house at Shahzadpur used by Rabindranath Tagore."],
+ /* ---- Khulna division ---- */
+ ["সুন্দরবন","Sundarbans","Khulna","forest","🐅","World's largest mangrove forest and home of the Bengal tiger."],
+ ["রূপসা সেতু","Rupsha Bridge","Khulna","other","🌉","Khan Jahan Ali Bridge over the Rupsha river at Khulna."],
+ ["ষাট গম্বুজ মসজিদ","Sixty Dome Mosque","Bagerhat","religious","🕌","UNESCO-listed 15th-century mosque in the historic city of Bagerhat."],
+ ["খান জাহান আলীর মাজার","Khan Jahan Ali's Tomb","Bagerhat","religious","🕌","Tomb of the saint-founder of Bagerhat, beside a large pond."],
+ ["করমজল বন্যপ্রাণী কেন্দ্র","Karamjal Wildlife Centre","Bagerhat","wildlife","🐊","Crocodile and deer breeding centre at the Sundarbans edge."],
+ ["কটকা সমুদ্র সৈকত","Kotka Beach","Bagerhat","beach","🌅","Remote Sundarbans beach and wildlife viewpoint."],
+ ["দুবলার চর","Dublar Char","Bagerhat","island","🐟","Sundarbans island and seasonal fishing hub."],
+ ["যশোরেশ্বরী কালী মন্দির","Jashoreshwari Temple","Satkhira","religious","🛕","Ancient Kali temple at Ishwaripur, Shyamnagar."],
+ ["মাইকেল মধুসূদন দত্তের জন্মভিটা (সাগরদাঁড়ি)","Michael Madhusudan Dutt's Birthplace (Sagardari)","Jashore","historic","📜","Village home of the Bengali poet Michael Madhusudan Dutt."],
+ ["এস. এম. সুলতান কমপ্লেক্স","S. M. Sultan Complex","Narail","other","🎨","Museum and art centre dedicated to the painter S. M. Sultan."],
+ ["শিলাইদহ কুঠিবাড়ি","Shilaidaha Kuthibari","Kushtia","historic","🏛️","Riverside estate house where Rabindranath Tagore lived and wrote."],
+ ["লালন আখড়া","Lalon Akhra","Kushtia","religious","🎶","Shrine and akhra of the Baul saint Lalon Shah at Cheuria."],
+ ["মাথাভাঙ্গা নদী","Mathabhanga River","Chuadanga","water","🛶","River flowing through the Chuadanga region."],
+ ["মুজিবনগর স্মৃতিসৌধ","Mujibnagar Memorial Complex","Meherpur","historic","🕊️","Site of the 1971 provisional government's oath-taking."],
+ /* ---- Barishal division ---- */
+ ["দুর্গা সাগর","Durga Sagar","Barishal","water","💧","Large historic pond at Babuganj."],
+ ["গুঠিয়া মসজিদ","Guthia Mosque","Barishal","religious","🕌","Well-known old mosque of the Barishal region."],
+ ["কীর্তনখোলা নদী","Kirtankhola River","Barishal","water","🚢","Main river of Barishal city, busy with launches and boats."],
+ ["চর কুকরি-মুকরি","Char Kukri-Mukri","Bhola","wildlife","🦀","Coastal char with mangroves and migratory birds."],
+ ["মনপুরা দ্বীপ","Monpura Island","Bhola","island","🏝️","Remote island in the Meghna estuary."],
+ ["ভিমরুলী ভাসমান পেয়ারা বাজার","Vimruli Floating Guava Market","Jhalokathi","other","🍐","Seasonal floating market selling guavas from boats."],
+ ["কুয়াকাটা সমুদ্র সৈকত","Kuakata Sea Beach","Patuakhali","beach","🌅","Wide beach where you can watch both sunrise and sunset over the sea."],
+ ["গঙ্গামতি সৈকত","Gangamati Beach","Patuakhali","beach","🌴","Quiet beach with coconut groves near Kuakata."],
+ ["কুয়াকাটা রাখাইন বৌদ্ধ মন্দির","Kuakata Rakhine Buddhist Temple","Patuakhali","religious","🛕","Temple of the Rakhine community at Kuakata."],
+ ["আটঘর কুড়িয়ানা ভাসমান বাজার","Atghar-Kuriana Floating Market","Pirojpur","other","🍐","Floating guava market in the canals of Pirojpur."],
+ ["টেংরাগিরি বন্যপ্রাণী অভয়ারণ্য","Tengragiri Wildlife Sanctuary","Barguna","wildlife","🦌","Mangrove sanctuary on the Barguna coast."],
+ /* ---- Sylhet division ---- */
+ ["জাফলং","Jaflong","Sylhet","hills","⛰️","Stone-and-river border area below the Khasi hills."],
+ ["রাতারগুল জলাবন","Ratargul Swamp Forest","Sylhet","forest","🌳","Freshwater swamp forest explored by boat."],
+ ["লালাখাল","Lalakhal","Sylhet","water","🛶","River with blue-green water, surrounded by tea and hills."],
+ ["বিছনাকান্দি","Bichanakandi","Sylhet","water","🌊","Stone-bed river view at the foot of the Meghalaya hills."],
+ ["পান্থুমাই ঝর্ণা","Panthumai Waterfall","Sylhet","hills","💦","Waterfall in the Gowainghat area."],
+ ["শাহজালাল মাজার","Shah Jalal Dargah","Sylhet","religious","🕌","Shrine of the Sufi saint Hazrat Shah Jalal in Sylhet city."],
+ ["হযরত শাহ পরান মাজার","Shah Paran Mazar","Sylhet","religious","🕌","Hilltop shrine of Hazrat Shah Paran."],
+ ["কিন ব্রিজ","Keane Bridge","Sylhet","other","🌉","Steel bridge over the Surma, a symbol of Sylhet city."],
+ ["মালনীছড়া চা বাগান","Malnicherra Tea Garden","Sylhet","tea","🍃","One of the oldest commercial tea estates in the region."],
+ ["শ্রীমঙ্গলের চা বাগান","Sreemangal Tea Gardens","Moulvibazar","tea","🍃","Rolling tea estates of the tea capital of Bangladesh."],
+ ["লাউয়াছড়া জাতীয় উদ্যান","Lawachara National Park","Moulvibazar","forest","🌳","Rainforest park with hoolock gibbons and trails."],
+ ["মাধবকুণ্ড জলপ্রপাত","Madhabkunda Waterfall","Moulvibazar","hills","💦","Among the country's tallest waterfalls, at Barlekha."],
+ ["হামহাম জলপ্রপাত","Hamham Waterfall","Moulvibazar","hills","💦","Remote forest waterfall in Kamalganj."],
+ ["নীলকণ্ঠ চা কেবিন","Nilkantha Tea Cabin","Moulvibazar","tea","🍵","Famous tea stall known for its seven-layer tea."],
+ ["বাইক্কা বিল","Baikka Beel","Moulvibazar","wildlife","🦆","Wetland sanctuary for waterbirds near Sreemangal."],
+ ["সাতছড়ি জাতীয় উদ্যান","Satchari National Park","Habiganj","forest","🌲","Mixed evergreen forest reserve with wildlife trails."],
+ ["মাধবপুর লেক","Madhabpur Lake","Habiganj","water","🏞️","Lake surrounded by tea gardens in Madhabpur."],
+ ["রেমা-কালেঙ্গা বন্যপ্রাণী অভয়ারণ্য","Rema-Kalenga Wildlife Sanctuary","Habiganj","wildlife","🦎","Forest sanctuary at Chunarughat."],
+ ["টাঙ্গুয়ার হাওর","Tanguar Haor","Sunamganj","water","🛶","Large freshwater wetland and Ramsar site."],
+ ["নীলাদ্রি লেক","Niladri Lake","Sunamganj","water","💧","Turquoise lake formed in an old quarry at Tahirpur."],
+ ["বারিক্কা টিলা","Barikka Tila","Sunamganj","hills","⛰️","Hillock viewpoint over the haor near Tahirpur."],
+ /* ---- Rangpur division ---- */
+ ["তাজহাট জমিদার বাড়ি","Tajhat Palace","Rangpur","historic","🏛️","Early-20th-century palace now serving as the Rangpur museum."],
+ ["ভিন্ন জগৎ","Vinno Jagat","Rangpur","other","🎡","Family theme park near Rangpur."],
+ ["বেগম রোকেয়া স্মৃতি কেন্দ্র","Begum Rokeya Memorial Centre","Rangpur","historic","📚","Memorial at Pairaband for the pioneering educator Begum Rokeya."],
+ ["কান্তজিউ মন্দির","Kantajew Temple","Dinajpur","religious","🛕","Richly decorated 18th-century terracotta temple."],
+ ["রামসাগর জাতীয় উদ্যান","Ramsagar National Park","Dinajpur","water","🏞️","Large historic pond with a park around it."],
+ ["নয়াবাদ মসজিদ","Nayabad Mosque","Dinajpur","religious","🕌","18th-century terracotta-decorated mosque."],
+ ["দিনাজপুর রাজবাড়ী","Dinajpur Rajbari","Dinajpur","historic","🏛️","Palace of the Dinajpur Maharajas."],
+ ["তিস্তা ব্যারেজ","Teesta Barrage","Lalmonirhat","water","🌊","Large irrigation barrage on the Teesta river."],
+ ["তিনবিঘা করিডোর","Tin Bigha Corridor","Lalmonirhat","other","🚪","Border corridor linking Dahagram-Angarpota with the mainland."],
+ ["সৈয়দপুর রেলওয়ে কারখানা","Saidpur Railway Workshop","Nilphamari","historic","🚂","Historic railway workshop founded in the 19th century."],
+ ["বাংলাবান্ধা জিরো পয়েন্ট","Banglabandha Zero Point","Panchagarh","other","📍","Northernmost point of Bangladesh at the Indian border."],
+ ["তেঁতুলিয়া চা বাগান","Tetulia Tea Gardens","Panchagarh","tea","🍃","Tea estates in the far north with views toward the Himalayas."],
+ /* ---- Mymensingh division ---- */
+ ["আলেকজান্ডার ক্যাসেল","Alexander Castle","Mymensingh","historic","🏰","Riverside castle-style mansion in Mymensingh town."],
+ ["শশী লজ","Shashi Lodge","Mymensingh","historic","🏛️","Neoclassical palace of the Suryakanta zamindars."],
+ ["জয়নুল আবেদিন সংগ্রহশালা","Zainul Abedin Museum","Mymensingh","other","🎨","Museum of works by the painter Zainul Abedin."],
+ ["মুক্তাগাছা জমিদার বাড়ি","Muktagacha Zamindar Bari","Mymensingh","historic","🏛️","Zamindar house and temples at Muktagacha."],
+ ["বাহাদুরাবাদ ঘাট","Bahadurabad Ghat","Jamalpur","water","🚢","Jamuna river ferry ghat at Dewanganj."],
+ ["বিজয়পুর সাদামাটি পাহাড়","Bijoypur White Clay Hills","Netrokona","hills","⛰️","White-clay hills and blue-water pools at Durgapur."],
+ ["কংস নদ","Kangsha River","Netrokona","water","🛶","River flowing through the Netrokona region."],
+ ["মধুটিলা ইকোপার্ক","Madhutila Eco Park","Sherpur","forest","🌳","Eco park in the Garo hills foothills at Nalitabari."],
+ ["গাজনী অবকাশ কেন্দ্র","Gajni Abakash Eco Park","Sherpur","forest","🌲","Hill-forest eco park near the Meghalaya border."]
+];
+/* District-based stamps: districts whose only entry is a clearly labelled district stamp. */
+const DSTAMP=['Faridpur','Shariatpur','Joypurhat','Jhenaidah','Magura','Gaibandha','Kurigram','Thakurgaon'];
+
+/* Map outline used for logo, cover emblem and watermark (stylised, 0-100 box) */
+const MAPD='M30 4L42 2 50 10 58 12 64 8 74 14 84 12 90 20 86 28 92 36 88 46 84 56 80 70 76 84 72 96 66 88 62 76 58 82 54 92 50 84 48 70 40 74 32 70 26 62 22 50 14 46 10 38 16 30 12 22 20 16 24 8Z';
+const RIVERS='M30 8Q44 36 56 50Q62 66 58 84M22 46Q40 48 56 50M84 30Q70 40 56 50';
+
+/* ---- Build the destination list ---- */
+const DISTMAP={};const DIVORDER=Object.keys(GEO);
+DIVORDER.forEach((dk,di)=>GEO[dk].d.forEach((x,xi)=>{DISTMAP[x[0]]={bn:x[1],div:dk,di:di,xi:xi};}));
+const DIST_TOTAL=Object.keys(DISTMAP).length;
+const slug=s=>s.toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const CATMAP={};CATS.forEach(c=>CATMAP[c[0]]={bn:c[1],en:c[2],ic:c[3]});
+const DEST=[];const DID={};
+function norm(s){return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[’'`´.,()\-–—/&]/g,' ').replace(/\s+/g,' ').trim();}
+function addDest(bn,en,dk,cat,ic,desc,isD){
+  const dm=DISTMAP[dk];if(!dm||!CATMAP[cat]){console.warn('Bad destination row',en);return;}
+  let id=slug(en)||('d'+DEST.length),n=2;while(DID[id]){id=slug(en)+'-'+(n++);}
+  const i=DEST.length;
+  const d={id:id,bn:bn,en:en,dk:dk,distBn:dm.bn,div:dm.div,cat:cat,ic:ic,desc:desc,isD:!!isD,idx:i,
+    stamp:{style:i%8,color:Math.floor(i/8)%6,variant:Math.floor(i/48)%4}};
+  d.stamp.key='S'+d.stamp.style+'-C'+d.stamp.color+'-V'+d.stamp.variant;
+  const h=hash(id);d.stamp.rot=((h%1000)/1000*2-1)*5;d.stamp.dx=((h>>10)%9)-4;d.stamp.dy=((h>>14)%7)-3;
+  d.hay=norm([bn,en,dk,dm.bn,GEO[dm.div].bn,GEO[dm.div].en,CATMAP[cat].bn,CATMAP[cat].en,isD?'district stamp জেলা স্ট্যাম্প':''].join(' '));
+  DID[id]=d;DEST.push(d);
+}
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+RAW.forEach(r=>addDest(r[0],r[1],r[2],r[3],r[4],r[5],false));
+DSTAMP.forEach(k=>addDest(DISTMAP[k].bn+' জেলা স্ট্যাম্প',k+' District Stamp',k,'other','📍','A district-based travel stamp for '+k+' — not tied to a single landmark.',true));
+(function check(){const have={};DEST.forEach(d=>have[d.dk]=1);Object.keys(DISTMAP).forEach(k=>{if(!have[k])console.warn('District without a stamp:',k);});})();
+
+/* =====================================================================
+   2. TRANSLATIONS  (key: [Bengali, English])
+   ===================================================================== */
+const T={
+ skip:['মূল অংশে যান','Skip to content'],menu:['মেনু','Menu'],nav_label:['প্রধান মেনু','Main navigation'],
+ nav_home:['হোম','Home'],nav_passport:['আমার পাসপোর্ট','My Passport'],nav_explore:['স্থান খুঁজুন','Explore Places'],nav_about:['আমাদের সম্পর্কে','About'],
+ cta_create:['আমার পাসপোর্ট বানান','Create My Passport'],lang_btn:['English','বাংলা'],lang_aria:['Switch to English','বাংলায় পরিবর্তন করুন'],
+ hero_h1:['বাংলাদেশ ঘুরুন, স্মৃতি জমা করুন!','Explore Bangladesh. Collect Your Journey.'],
+ hero_sub:['Explore Bangladesh. Collect Your Journey.','বাংলাদেশ ঘুরুন, স্মৃতি জমা করুন!'],
+ hero_desc:['আপনার দেখা বাংলাদেশের জায়গাগুলো বেছে নিন, প্রতিটির জন্য একটি করে ডিজিটাল স্ট্যাম্প সংগ্রহ করুন, নিজের পাসপোর্ট সাজান এবং স্মারক হিসেবে ডাউনলোড করুন।','Pick the places in Bangladesh you have been to, collect a digital stamp for each, personalize your passport and download it as a keepsake.'],
+ hero_cta:['আপনার পাসপোর্ট তৈরি করুন','Create Your Passport'],hero_cta2:['স্থান দেখুন','Browse places'],
+ cnt_total:['মোট গন্তব্য','Destinations available'],cnt_sel:['আপনার নির্বাচিত','Selected by you'],
+ b_title:['আমার পাসপোর্ট','My Passport'],b_lead:['নাম, কভারের রং ও নকশা বেছে নিন—প্রিভিউ সঙ্গে সঙ্গে বদলে যাবে।','Choose your name, cover color and design — the preview updates instantly.'],
+ f_name:['ভ্রমণকারীর নাম (ঐচ্ছিক)','Traveler name (optional)'],f_name_ph:['আপনার নাম লিখুন','Type your name'],
+ f_title:['পাসপোর্টের শিরোনাম','Passport title'],f_title_val:['আমার বাংলাদেশ ভ্রমণ পাসপোর্ট','My Bangladesh Travel Passport'],
+ f_country:['দেশ','Country'],f_country_val:['বাংলাদেশ','Bangladesh'],
+ f_pno:['স্মারক পাসপোর্ট নম্বর (শুধু সাজসজ্জা, সরকারি পরিচয় নয়)','Souvenir passport no. (decorative only, not an official ID)'],
+ f_color:['কভারের রং','Cover color'],f_pattern:['কভারের নকশা','Cover pattern'],f_emblem:['কভারের প্রতীক','Cover emblem'],
+ c_green:['বনসবুজ','Forest green'],c_burgundy:['বারগান্ডি','Burgundy'],c_navy:['নেভি ব্লু','Navy blue'],c_black:['ক্লাসিক কালো','Classic black'],
+ p_waves:['নদীর ঢেউ','River waves'],p_jamdani:['জামদানি','Jamdani'],p_stars:['তারা','Stars'],p_lattice:['জালি','Lattice'],
+ e_map:['মানচিত্র','Map'],e_shapla:['শাপলা','Shapla'],e_boat:['নৌকা','Boat'],e_leaf:['চা-পাতা','Tea leaf'],
+ tab_cover:['কভার','Cover'],tab_pages:['স্ট্যাম্প পাতা','Stamp pages'],view_label:['পাসপোর্টের দৃশ্য','Passport view'],
+ stage_label:['পাসপোর্ট প্রিভিউ। পাতা বদলাতে বাম বা ডান তীর চাপুন।','Passport preview. Use the left and right arrow keys to change page.'],
+ pg_prev:['← আগের','← Previous'],pg_next:['পরের →','Next →'],pg_ind:['পাতা {0} / {1}','Page {0} of {1}'],
+ btn_save:['পাসপোর্ট সংরক্ষণ','Save Passport'],btn_download:['⬇ আমার পাসপোর্ট ডাউনলোড','⬇ Download My Passport'],btn_share:['শেয়ার করুন','Share'],btn_copy:['তালিকা কপি','Copy list'],
+ btn_reset:['পাসপোর্ট রিসেট','Reset Passport'],btn_new:['নতুন পাসপোর্ট শুরু','Start a New Passport'],btn_guide:['কীভাবে কাজ করে','How it works'],
+ s_title:['আপনার ভ্রমণ পরিসংখ্যান','Your travel statistics'],s_total:['মোট গন্তব্য','Total destinations'],s_sel:['নির্বাচিত','Selected'],s_pct:['সংগ্রহের হার','Collected'],
+ s_div:['অন্বেষিত বিভাগ','Divisions explored'],s_dist:['প্রতিনিধিত্বকারী জেলা','Districts represented'],s_rem:['বাকি','Remaining'],s_bydiv:['বিভাগ অনুযায়ী অগ্রগতি','Progress by division'],s_progress:['সংগ্রহের অগ্রগতি','Collection progress'],
+ x_title:['স্থান খুঁজুন','Explore places'],x_lead:['যেখানে গেছেন সেখানে টিক দিন—স্ট্যাম্প নিজে থেকেই আপনার পাসপোর্টে যুক্ত হবে।','Tick the places you have visited — the stamp is added to your passport automatically.'],
+ x_search:['খুঁজুন','Search'],x_search_ph:['বাংলা বা ইংরেজিতে খুঁজুন (যেমন: সিলেট, beach)','Search in Bengali or English (e.g. Sylhet, সৈকত)'],x_clear_search:['সার্চ মুছুন','Clear search'],
+ x_div:['বিভাগ','Division'],x_dist:['জেলা','District'],x_cat:['ধরন','Category'],x_sort:['সাজান','Sort'],
+ x_all_div:['সব বিভাগ','All divisions'],x_all_dist:['সব জেলা','All districts'],x_all_cat:['সব ধরন','All categories'],
+ x_sort_def:['বিভাগ অনুযায়ী','By division'],x_sort_en:['A–Z (ইংরেজি)','A–Z (English)'],x_sort_bn:['অ–হ (বাংলা)','A–Z (Bengali)'],
+ x_only:['শুধু নির্বাচিত দেখান','Show only selected'],x_selall:['ফলাফলের সব নির্বাচন','Select all results'],x_clearall:['সব স্ট্যাম্প মুছুন','Clear all stamps'],x_reset_f:['ফিল্টার রিসেট','Reset filters'],
+ x_count:['মোট {1}টির মধ্যে {0}টি স্থান দেখানো হচ্ছে','Showing {0} of {1} destinations'],x_more:['আরও দেখুন ({0}টি বাকি)','Show more ({0} left)'],
+ x_empty_t:['কোনো স্থান পাওয়া যায়নি','No destinations found'],x_empty_d:['অন্য শব্দে খুঁজুন বা ফিল্টার রিসেট করুন।','Try another word or reset the filters.'],
+ x_empty_sel:['আপনি এখনও কোনো স্থান নির্বাচন করেননি।','You have not selected any places yet.'],
+ card_d:['জেলা স্ট্যাম্প','District stamp'],card_aria:['{0} নির্বাচন করুন','Select {0}'],card_div:['{0}, {1} বিভাগ','{0}, {1} Division'],
+ pp_info:['ভ্রমণকারীর তথ্য','Traveler details'],pp_stamps:['স্ট্যাম্প','Stamps'],pp_name:['নাম','Name'],pp_noname:['নাম দেওয়া হয়নি','Name not provided'],
+ pp_country:['দেশ','Country'],pp_pno:['স্মারক নম্বর','Souvenir no.'],pp_created:['তৈরির তারিখ','Created'],pp_coll:['সংগৃহীত','collected'],
+ pp_souv:['স্মারক — সরকারি ভ্রমণ নথি নয়','Souvenir — not an official travel document'],
+ pp_empty_t:['আপনার পাসপোর্ট প্রথম স্ট্যাম্পের অপেক্ষায়','Your passport awaits its first stamp'],pp_empty_d:['“স্থান খুঁজুন” অংশ থেকে স্থান নির্বাচন করুন।','Pick places in the “Explore places” section.'],
+ cv_traveler:['ভ্রমণকারী','TRAVELER'],cv_ph:['আপনার নাম','Your name here'],cv_pno:['স্মারক নং','SOUVENIR NO.'],cv_note:['ব্যক্তিগত স্মারক · সরকারি নথি নয়','Personal souvenir · not an official document'],cover_aria:['পাসপোর্টের কভার','Passport cover'],page_aria:['পাসপোর্টের পাতা {0}','Passport page {0}'],
+ m_saved:['পাসপোর্ট সংরক্ষিত হয়েছে ✓','Passport saved ✓'],m_save_fail:['সংরক্ষণ করা যায়নি—ব্রাউজারের স্টোরেজ বন্ধ। পাসপোর্ট শুধু এই সেশনে থাকবে।','Could not save — browser storage is unavailable. Your passport will only last for this session.'],
+ storage_warn:['এই ব্রাউজারে স্টোরেজ বন্ধ আছে—অগ্রগতি সংরক্ষিত হবে না।','Browser storage is unavailable — your progress will not be saved.'],
+ m_coll:['স্ট্যাম্প সংগৃহীত: {0}','Stamp collected: {0}'],m_rem:['স্ট্যাম্প সরানো হয়েছে: {0}','Stamp removed: {0}'],m_selall:['{0}টি স্ট্যাম্প যুক্ত হয়েছে','{0} stamps added'],
+ m_cleared:['সব স্ট্যাম্প মুছে ফেলা হয়েছে','All stamps cleared'],m_none:['নির্বাচন করার মতো কোনো ফলাফল নেই','No results to select'],m_nostamps:['মুছে ফেলার মতো কোনো স্ট্যাম্প নেই','There are no stamps to clear'],
+ m_copied:['তালিকা কপি হয়েছে','List copied'],m_copy_fail:['কপি করা যায়নি','Could not copy'],m_copy_empty:['কপি করার মতো কোনো নির্বাচিত স্থান নেই','No selected places to copy'],m_shared:['শেয়ার হয়েছে','Shared'],
+ m_print:['প্রিন্ট ডায়ালগ খুলেছে—গন্তব্য হিসেবে “Save as PDF” বেছে নিন।','Print dialog opened — choose “Save as PDF” as the destination.'],
+ m_png_ok:['PNG ফাইল তৈরি হয়েছে','PNG file created'],m_png_fail:['PNG তৈরি করা যায়নি। প্রিন্ট / PDF ব্যবহার করুন।','Could not create the PNG. Please use Print / Save as PDF.'],
+ m_png_all:['{0}টি পাতা তৈরি হচ্ছে…','Creating {0} pages…'],m_empty_export:['কোনো স্ট্যাম্প নেই—শুধু কভার ও খালি পাতা থাকবে।','No stamps yet — only the cover and blank pages will be included.'],
+ m_reset:['পাসপোর্ট রিসেট হয়েছে','Passport reset'],m_new:['নতুন পাসপোর্ট শুরু হয়েছে','New passport started'],
+ cf_clear_t:['সব স্ট্যাম্প মুছবেন?','Clear all stamps?'],cf_clear_d:['আপনার নির্বাচিত সব স্থান পাসপোর্ট থেকে সরে যাবে।','All your selected places will be removed from the passport.'],
+ cf_reset_t:['পাসপোর্ট রিসেট করবেন?','Reset passport?'],cf_reset_d:['সব স্ট্যাম্প মুছে যাবে এবং সংরক্ষিত অগ্রগতি আপডেট হবে। নাম ও কভার থাকবে।','All stamps will be removed and saved progress updated. Your name and cover design stay.'],
+ cf_new_t:['নতুন পাসপোর্ট শুরু করবেন?','Start a new passport?'],cf_new_d:['নাম, কভার ও সব স্ট্যাম্পসহ সংরক্ষিত পাসপোর্ট মুছে নতুন নম্বরসহ নতুন পাসপোর্ট শুরু হবে।','Your saved passport — name, cover and all stamps — will be deleted and a new one with a new number will start.'],
+ cf_yes:['হ্যাঁ, নিশ্চিত','Yes, confirm'],cf_no:['বাতিল','Cancel'],
+ ex_title:['পাসপোর্ট ডাউনলোড','Download your passport'],ex_intro:['কভার ও সব স্ট্যাম্প পাতা ({0}টি স্ট্যাম্প, মোট {1}টি পাতা) এক্সপোর্ট হবে।','Your cover and every stamp page will be exported ({0} stamps, {1} pages in total).'],
+ ex_howto_t:['PDF হিসেবে সংরক্ষণের ধাপ','How to save as PDF'],
+ ex_s1:['“প্রিন্ট / PDF হিসেবে সংরক্ষণ” চাপুন—ব্রাউজারের প্রিন্ট ডায়ালগ খুলবে।','Press “Print / Save as PDF” — your browser’s print dialog opens.'],
+ ex_s2:['গন্তব্য (Destination) হিসেবে “Save as PDF” বেছে নিন (iPhone/iPad: Share → Save to Files)।','Choose “Save as PDF” as the destination (iPhone/iPad: Share → Save to Files).'],
+ ex_s3:['কাগজ A5, মার্জিন “None” রাখুন এবং “Background graphics” চালু করুন, যাতে রং ঠিক থাকে।','Use paper size A5, margins “None”, and turn on “Background graphics” so the colors are kept.'],
+ ex_s4:['“Save” চাপুন। সব স্ট্যাম্প পাতা ফাইলে থাকবে।','Press “Save”. All stamp pages are included in the file.'],
+ ex_note:['প্রিন্ট ডায়ালগ থেকে সংরক্ষণ না করা পর্যন্ত কোনো ফাইল তৈরি হয় না। PNG বোতাম সরাসরি ছবি ডাউনলোড করে।','No file exists until you save from the print dialog. The PNG buttons download image files directly.'],
+ ex_pdf:['প্রিন্ট / PDF হিসেবে সংরক্ষণ','Print / Save as PDF'],ex_png1:['বর্তমান পাতা PNG হিসেবে','Current page as PNG'],ex_pngall:['সব পাতা PNG (একাধিক ফাইল)','All pages as PNG (multiple files)'],ex_close:['বন্ধ করুন','Close'],
+ g_title:['স্বাগতম! কীভাবে শুরু করবেন','Welcome! How to start'],g1:['নিজের নাম ও কভারের নকশা বেছে নিন।','Choose your name and cover design.'],
+ g2:['“স্থান খুঁজুন” অংশে যেখানে গেছেন সেখানে টিক দিন।','Tick the places you have visited in “Explore places”.'],g3:['প্রিভিউতে স্ট্যাম্পগুলো দেখুন ও পাতা উল্টান।','Watch your stamps appear in the preview and flip through the pages.'],
+ g4:['সংরক্ষণ করুন এবং PDF বা PNG হিসেবে ডাউনলোড করুন।','Save your passport and download it as a PDF or PNG.'],g_start:['শুরু করি','Let’s go'],
+ ab_title:['আমাদের সম্পর্কে','About'],ab_h1:['এটি কী','What this is'],ab_h2:['স্থানের তালিকা','The destination list'],ab_h3:['স্ট্যাম্পগুলো','The stamps'],
+ ab_text:['চুডলিংপং বাংলাদেশ একটি বিনামূল্যের, অ্যাকাউন্টহীন ডিজিটাল ভ্রমণ পাসপোর্ট। এটি বাংলাদেশের নদী, পাহাড়, সমুদ্র, বন, ইতিহাস ও সংস্কৃতির স্মৃতি জমিয়ে রাখতে সাহায্য করে।','Chudlingpong Bangladesh is a free, account-free digital travel passport. It helps you keep memories of Bangladesh’s rivers, hills, sea, forests, history and culture.'],
+ ab_data:['৬৪ জেলার প্রতিটির জন্য অন্তত একটি এন্ট্রি আছে। “জেলা স্ট্যাম্প” চিহ্নিত এন্ট্রি নির্দিষ্ট কোনো স্থাপনা নয়, শুধু জেলাভিত্তিক স্মারক। তালিকাটি একটি জাভাস্ক্রিপ্ট অ্যারেতে আছে, তাই নতুন স্থান সহজে যোগ করা যায়।','Every one of the 64 districts has at least one entry. Entries marked “District stamp” are district-based souvenirs, not a specific landmark. The list lives in one JavaScript array, so new places are easy to add.'],
+ ab_stamps:['প্রতিটি স্থানের নিজস্ব স্ট্যাম্পের নকশা, রং ও আইকন আছে। স্ট্যাম্পের হালকা ঘূর্ণন শুধু স্ক্র্যাপবুকের মতো দেখানোর জন্য।','Each place has its own stamp shape, ink color and icon. The slight tilt is only there for a scrapbook look.'],
+ disclaimer:['এই ডিজিটাল ভ্রমণ পাসপোর্ট একটি ব্যক্তিগত স্মারক; এটি সরকারি ভ্রমণ নথি নয় এবং ভ্রমণের প্রমাণও নয়।','This digital travel passport is a personal souvenir and is not an official travel document or proof of a visit.'],
+ privacy_t:['গোপনীয়তা','Privacy'],privacy_d:['কোনো অ্যাকাউন্ট, ট্র্যাকিং বা সার্ভার নেই। আপনার তথ্য শুধু এই ডিভাইসের ব্রাউজারে (localStorage) থাকে।','No account, tracking or server. Your data stays only in this browser (localStorage) on this device.'],
+ ft_rights:['© চুডলিংপং বাংলাদেশ — ব্যক্তিগত স্মারক প্রকল্প','© Chudlingpong Bangladesh — a personal souvenir project'],back_top:['উপরে যান','Back to top'],
+ sh_title:['আমি চুডলিংপং বাংলাদেশে {1}টির মধ্যে {0}টি স্থানের স্ট্যাম্প সংগ্রহ করেছি! 🇧🇩','I collected {0} of {1} Bangladesh destination stamps on Chudlingpong Bangladesh! 🇧🇩'],sh_more:['…আরও {0}টি','…and {0} more'],sh_none:['আমি চুডলিংপং বাংলাদেশে আমার ভ্রমণ পাসপোর্ট শুরু করেছি! 🇧🇩','I started my travel passport on Chudlingpong Bangladesh! 🇧🇩']
+};
+
+/* =====================================================================
+   3. UTILITIES / STATE / STORAGE
+   ===================================================================== */
+const $=(s,r)=>(r||document).querySelector(s),$$=(s,r)=>Array.from((r||document).querySelectorAll(s));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const COV={green:{a:'#0f4d3a',b:'#093528'},burgundy:{a:'#7a1f33',b:'#4a1120'},navy:{a:'#1d3d75',b:'#10234a'},black:{a:'#2c2c31',b:'#111113'}};
+const PATTERNS=['waves','jamdani','stars','lattice'],EMBLEMS=['map','shapla','boat','leaf'];
+const KEY='chudlingpong_bd_passport_v1';
+let storageOK=true;
+
+function genPno(){const ch='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';let r;
+  try{r=crypto.getRandomValues(new Uint8Array(8));}catch(e){r=Array.from({length:8},()=>Math.floor(Math.random()*256));}
+  for(let i=0;i<8;i++){s+=ch[r[i]%ch.length];if(i===3)s+='-';}return 'CP-'+s;}
+function defaultState(lang){return{v:1,name:'',color:'green',pattern:'waves',emblem:'map',lang:lang||'bn',sel:{},pno:genPno(),created:Date.now(),guide:false};}
+function sanitize(o){
+  if(!o||typeof o!=='object')return null;const s=defaultState();
+  if(o.lang==='bn'||o.lang==='en')s.lang=o.lang;
+  if(typeof o.name==='string')s.name=cleanName(o.name);
+  if(COV[o.color])s.color=o.color;if(PATTERNS.includes(o.pattern))s.pattern=o.pattern;if(EMBLEMS.includes(o.emblem))s.emblem=o.emblem;
+  if(typeof o.pno==='string'&&/^CP-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(o.pno))s.pno=o.pno;
+  if(Number.isFinite(+o.created)&&+o.created>0)s.created=+o.created;
+  s.guide=!!o.guide;
+  if(o.sel&&typeof o.sel==='object'){Object.keys(o.sel).forEach(id=>{if(DID[id])s.sel[id]=Number.isFinite(+o.sel[id])&&+o.sel[id]>0?+o.sel[id]:Date.now();});}
+  return s;}
+function cleanName(v){return String(v).replace(/[\u0000-\u001f\u007f<>]/g,'').replace(/\s+/g,' ').slice(0,40);}
+function loadState(){try{const raw=localStorage.getItem(KEY);storageOK=true;return raw?sanitize(JSON.parse(raw)):null;}catch(e){storageOK=false;return null;}}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));storageOK=true;return true;}catch(e){storageOK=false;return false;}}
+function wipeStore(){try{localStorage.removeItem(KEY);}catch(e){}}
+
+let state=loadState()||defaultState();
+const view={page:0};
+const F={q:'',div:'',dist:'',cat:'',only:false,sort:'def'};
+const CHUNK=48;let shown=CHUNK,cur=[];
+
+const lang=()=>state.lang;
+function t(k){const v=T[k];if(!v)return k;let s=v[lang()==='bn'?0:1];for(let i=1;i<arguments.length;i++)s=s.split('{'+(i-1)+'}').join(arguments[i]);return s;}
+const BND='০১২৩৪৫৬৭৮৯';
+const num=x=>lang()==='bn'?String(x).replace(/\d/g,d=>BND[d]):String(x);
+const nm=d=>lang()==='bn'?d.bn:d.en;
+const nm2=d=>lang()==='bn'?d.en:d.bn;
+const distName=d=>lang()==='bn'?d.distBn:d.dk;
+const divName=k=>lang()==='bn'?GEO[k].bn:GEO[k].en;
+const catName=k=>lang()==='bn'?CATMAP[k].bn:CATMAP[k].en;
+const MON=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+function fmtDate(ts){const D=new Date(ts||Date.now());return String(D.getDate()).padStart(2,'0')+' '+MON[D.getMonth()]+' '+D.getFullYear();}
+function debounce(fn,ms){let h;return function(){const a=arguments;clearTimeout(h);h=setTimeout(()=>fn.apply(null,a),ms);};}
+const scheduleSave=debounce(()=>{persist();updateStoreWarn();},500);
+function updateStoreWarn(){const w=$('#storeWarn');if(storageOK){w.hidden=true;}else{w.hidden=false;w.textContent=t('storage_warn');}}
+function toast(msg,err){const c=$('#toasts');const el=document.createElement('div');el.className='toast'+(err?' err':'');el.textContent=msg;c.appendChild(el);while(c.children.length>3)c.removeChild(c.firstChild);setTimeout(()=>{el.remove();},err?4800:2600);}
+function selList(){return DEST.filter(d=>state.sel[d.id]);}
+function stats(){
+  const sel=selList(),divs=new Set(sel.map(d=>d.div)),dists=new Set(sel.map(d=>d.dk)),per={};
+  DIVORDER.forEach(k=>per[k]={t:0,s:0});DEST.forEach(d=>{per[d.div].t++;if(state.sel[d.id])per[d.div].s++;});
+  const total=DEST.length,n=sel.length;
+  return{total:total,n:n,pct:n?Math.max(1,Math.round(n/total*100)):0,divN:divs.size,distN:dists.size,rem:total-n,per:per};}
+
+/* =====================================================================
+   4. TEXT FITTING (for SVG text)
+   ===================================================================== */
+function tw(s,fs){let w=0;for(const ch of String(s)){const c=ch.charCodeAt(0);
+  if(c>=0x980&&c<=0x9FF){if(c===0x9CD)w-=0.3;else if((c>=0x981&&c<=0x983)||c===0x9BC||(c>=0x9BE&&c<=0x9CC)||c===0x9D7)w+=0.1;else w+=0.6;}
+  else w+=ch===' '?0.28:(/[A-Z]/.test(ch)?0.64:0.52);}
+  return Math.max(w,0)*fs;}
+function fitLines(text,maxW,fsMax,fsMin,maxLines){
+  const w1=tw(text,fsMax),f1=w1<=maxW?fsMax:Math.max(fsMin,fsMax*maxW/w1);
+  if(maxLines<2||text.indexOf(' ')<0||f1>=fsMax*0.8)return{lines:[text],fs:f1};
+  const words=text.split(' ');let best=null;
+  for(let i=1;i<words.length;i++){const a=words.slice(0,i).join(' '),b=words.slice(i).join(' ');const m=Math.max(tw(a,fsMax),tw(b,fsMax));if(!best||m<best.m)best={a:a,b:b,m:m};}
+  const f2=best.m<=maxW?fsMax:Math.max(fsMin,fsMax*maxW/best.m);
+  return{lines:[best.a,best.b],fs:f2};}
+function wrapW(text,maxW,fs){const words=String(text).split(' ');const out=[];let line='';
+  words.forEach(w=>{const tryL=line?line+' '+w:w;if(tw(tryL,fs)<=maxW||!line)line=tryL;else{out.push(line);line=w;}});if(line)out.push(line);return out;}
+const ls=v=>lang()==='en'?v:0;
+
+/* =====================================================================
+   5. SVG ART — glyphs, emblems, patterns, stamps, pages
+   ===================================================================== */
+const FFA="'Noto Serif Bengali','Noto Sans Bengali','Kalpurush','Nirmala UI','Siyam Rupali','Vrinda','Bangla MN','Bengali Sangam MN',Georgia,'Times New Roman',serif";
+const INK=['#b3261e','#1d4f91','#1f6b46','#6a2c91','#9a5a12','#0b7285'];
+
+function glyph(cat,col){
+  const a='fill="none" stroke="'+col+'" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"';let p='';
+  switch(cat){
+   case 'beach':p='<circle cx="8" cy="-8" r="5.5"/><path d="M-18 6q4.5-5 9 0t9 0t9 0t9 0M-18 13q4.5-5 9 0t9 0t9 0t9 0"/>';break;
+   case 'hills':p='<path d="M-18 14L-6-6 0 4 8-12 18 14Z"/><path d="M4-4l4 4 4-4"/>';break;
+   case 'forest':p='<path d="M0-16L-10-2H-5L-13 8H-3V15H3V8H13L5-2H10Z"/>';break;
+   case 'island':p='<path d="M2 14Q4 2-2-6M-2-6q-10-2-14 6M-2-6q10-4 16 3M-2-6q-2-9 8-10M-2-6q-8-8-16-3M-16 15q16-6 32 0"/>';break;
+   case 'historic':p='<path d="M-16 14V-2H-12V-6H-8V-2H-4V-6H0V-2H4V-6H8V-2H12V-6H16V14Z"/><path d="M-4 14V7a4 4 0 0 1 8 0V14"/>';break;
+   case 'religious':p='<path d="M-14 14V4H14V14M-10 4A10 10 0 0 1 10 4M0-6V-13M-18 14V-4M18 14V-4M-18-4v-4M18-4v-4"/>';break;
+   case 'water':p='<path d="M-16 4Q0 14 16 4ZM0 4V-14L10 0Z"/><path d="M-18 14q4.5-4 9 0t9 0t9 0t9 0"/>';break;
+   case 'tea':p='<path d="M-14 12C-14-8 4-16 14-14 16-2 8 14-14 12Z"/><path d="M-14 12L8-8"/>';break;
+   case 'wildlife':p='<path d="M0 12C-8 12-10 4-6 2-3 0 3 0 6 2 10 4 8 12 0 12Z"/><circle cx="-9" cy="-4" r="3.2"/><circle cx="-3.5" cy="-10" r="3.2"/><circle cx="3.5" cy="-10" r="3.2"/><circle cx="9" cy="-4" r="3.2"/>';break;
+   default:p='<path d="M0 16C-10 4-12 0-12-6A12 12 0 0 1 12-6C12 0 10 4 0 16Z"/><circle cx="0" cy="-6" r="4"/>';}
+  return '<g '+a+'>'+p+'</g>';}
+
+function emblem(k,g,b){
+  switch(k){
+   case 'shapla':{let p='<path d="M-62 40q12-8 25 0t25 0t25 0t25 0" fill="none" stroke="'+g+'" stroke-width="3" stroke-linecap="round"/><ellipse cx="-48" cy="30" rx="26" ry="7" fill="'+g+'" opacity=".55"/><ellipse cx="48" cy="30" rx="26" ry="7" fill="'+g+'" opacity=".55"/>';
+     [-64,-32,32,64,0].forEach(a=>{p+='<ellipse cx="0" cy="-10" rx="13" ry="32" transform="rotate('+a+' 0 22)" fill="'+g+'" stroke="'+b+'" stroke-width="1.8"/>';});return p;}
+   case 'boat':return '<path d="M-60 20Q0 50 60 20L48 8H-48Z" fill="'+g+'" stroke="'+b+'" stroke-width="1.5"/><path d="M-2 8V-60Q38-30 40 8Z" fill="'+g+'" opacity=".9" stroke="'+b+'" stroke-width="1.5"/><path d="M-8 8V-40Q-34-20-36 8Z" fill="'+g+'" opacity=".75" stroke="'+b+'" stroke-width="1.5"/><path d="M-70 40q12-10 24 0t24 0t24 0t24 0t24 0" fill="none" stroke="'+g+'" stroke-width="3" stroke-linecap="round"/>';
+   case 'leaf':{const L='<path d="M0 40C-30 10-26-30 0-52C26-30 30 10 0 40Z" fill="'+g+'" stroke="'+b+'" stroke-width="1.6"/><path d="M0 40V-38" stroke="'+b+'" stroke-width="1.4"/>';
+     return '<g transform="rotate(-50 0 40) scale(.8)" transform-origin="0 40">'+L+'</g><g transform="rotate(50 0 40) scale(.8)" transform-origin="0 40">'+L+'</g>'+L;}
+   default:return '<g transform="translate(-65 -65) scale(1.3)"><path d="'+MAPD+'" fill="'+g+'" stroke="'+b+'" stroke-width="1.2" stroke-linejoin="round"/><path d="'+RIVERS+'" fill="none" stroke="'+b+'" stroke-width="1.6" stroke-linecap="round" opacity=".75"/></g>';}
+}
+function patternDef(p,u,col,op){
+  const o=op==null?0.16:op;let w=40,h=40,b='';
+  if(p==='waves'){w=48;h=24;b='<path d="M0 12q12-12 24 0t24 0" fill="none" stroke="'+col+'" stroke-width="1.3"/>';}
+  else if(p==='jamdani'){b='<path d="M20 3L37 20 20 37 3 20Z" fill="none" stroke="'+col+'" stroke-width="1.2"/><path d="M20 13L27 20 20 27 13 20Z" fill="'+col+'"/>';}
+  else if(p==='stars'){w=36;h=36;b='<path d="M18 7L20.4 15.6 29 18 20.4 20.4 18 29 15.6 20.4 7 18 15.6 15.6Z" fill="'+col+'"/>';}
+  else{w=28;h=28;b='<path d="M0 0L28 28M28 0L0 28" fill="none" stroke="'+col+'" stroke-width="1"/><circle cx="14" cy="14" r="2" fill="'+col+'"/>';}
+  return '<pattern id="'+u+'p" width="'+w+'" height="'+h+'" patternUnits="userSpaceOnUse"><g opacity="'+o+'">'+b+'</g></pattern>';}
+
+/* Stamp outlines (box about 190 x 118, centred on 0,0) with usable text width */
+const SH=[
+ {w:88,o:'<circle r="55" stroke-width="3"/><circle r="49.5" stroke-width="1"/>'},
+ {w:158,o:'<rect x="-92" y="-56" width="184" height="112" rx="7" stroke-width="3"/><rect x="-86" y="-50" width="172" height="100" rx="4" stroke-width="1"/>'},
+ {w:128,o:'<ellipse rx="90" ry="55" stroke-width="3"/><ellipse rx="84" ry="49.5" stroke-width="1"/>'},
+ {w:146,o:'<polygon points="-66,-56 66,-56 90,-32 90,32 66,56 -66,56 -90,32 -90,-32" stroke-width="3"/><polygon points="-63,-50 63,-50 84,-30 84,30 63,50 -63,50 -84,30 -84,-30" stroke-width="1"/>'},
+ {w:150,o:'<path d="M-90-52H90V-12A12 12 0 0 0 90 12V52H-90V12A12 12 0 0 0-90-12Z" stroke-width="3"/><rect x="-80" y="-43" width="160" height="86" rx="3" stroke-width="1" stroke-dasharray="3 3"/>'},
+ {w:105,o:'<polygon points="-45,-56 45,-56 90,0 45,56 -45,56 -90,0" stroke-width="3"/><polygon points="-42,-50 42,-50 83,0 42,50 -42,50 -83,0" stroke-width="1"/>'},
+ {w:136,o:'<path d="M-82 56V-8A82 48 0 0 1 82-8V56Z" stroke-width="3"/><path d="M-76 50V-8A76 42 0 0 1 76-8V50Z" stroke-width="1"/>'},
+ {w:150,o:'<rect x="-92" y="-54" width="184" height="108" rx="30" stroke-width="3"/><rect x="-85" y="-47" width="170" height="94" rx="24" stroke-width="1" stroke-dasharray="4 3"/>'}
+];
+function star4(x,y,col){return '<path transform="translate('+x+' '+y+')" d="M0-5L1.5-1.5 5 0 1.5 1.5 0 5-1.5 1.5-5 0-1.5-1.5Z" fill="'+col+'"/>';}
+/* One destination's stamp, centred on (0,0). Deterministic: same destination = same stamp. */
+function stampG(d,ts,filterId){
+  const s=d.stamp,col=INK[s.color],sh=SH[s.style],w=sh.w,half=w/2;
+  let o='<g transform="translate('+s.dx+' '+s.dy+') rotate('+s.rot.toFixed(2)+')"'+(filterId?' filter="url(#'+filterId+')"':'')+' opacity=".94">';
+  o+='<g fill="none" stroke="'+col+'">'+sh.o+'</g>';
+  o+='<g transform="translate(0 -29) scale(.78)">'+glyph(d.cat,col)+'</g>';
+  const sx=Math.min(44,half-8);
+  if(s.variant===1)o+=star4(-sx,-29,col)+star4(sx,-29,col);
+  else if(s.variant===2){const r=Math.min(40,half-14);o+='<path d="M'+(-r)+' -9H-8M8 -9H'+r+'" stroke="'+col+'" stroke-width="1"/><path d="M0-12L3-9 0-6-3-9Z" fill="'+col+'"/>';}
+  else if(s.variant===3)o+='<circle cx="'+(-sx)+'" cy="-29" r="2" fill="'+col+'"/><circle cx="'+sx+'" cy="-29" r="2" fill="'+col+'"/><circle cx="'+(-sx+7)+'" cy="-29" r="1.2" fill="'+col+'"/><circle cx="'+(sx-7)+'" cy="-29" r="1.2" fill="'+col+'"/>';
+  const lines=[];const bn=fitLines(d.bn,w,15,8,2),en=fitLines(d.en,w,9.4,5.6,2);
+  bn.lines.forEach(x=>lines.push({t:x,fs:bn.fs,wt:700,ls:0}));
+  en.lines.forEach(x=>lines.push({t:x,fs:en.fs,wt:500,ls:0}));
+  const dtx=d.dk.toUpperCase(),df=fitLines(dtx,w*0.78,6.6,4.6,1).fs;
+  lines.push({t:dtx,fs:df,wt:600,ls:0.5});
+  lines.push({t:'BD · '+fmtDate(ts),fs:Math.min(6,fitLines('BD · 00 MMM 0000',w*0.74,6,4.5,1).fs),wt:500,ls:0.3});
+  let H=0;lines.forEach(l=>H+=l.fs*1.2);const k=Math.min(1,58/H);H*=k;
+  let y=-10+(58-H)/2;
+  lines.forEach(l=>{const fs=l.fs*k;y+=fs*1.2;o+='<text x="0" y="'+(y-fs*0.22).toFixed(1)+'" text-anchor="middle" font-size="'+fs.toFixed(2)+'" font-weight="'+l.wt+'" fill="'+col+'"'+(l.ls?' letter-spacing="'+l.ls+'"':'')+'>'+esc(l.t)+'</text>';});
+  return o+'</g>';}
+function thumbSVG(d,forceColor){return '<svg class="thumb" viewBox="-100 -64 200 128" font-family="'+FFA+'" aria-hidden="true" focusable="false">'+stampG(d,state.sel[d.id]||Date.now())+'</svg>';}
+
+function svgRoot(inner,label){return '<svg xmlns="http://www.w3.org/2000/svg" width="480" height="680" viewBox="0 0 480 680" font-family="'+FFA+'" role="img" aria-label="'+esc(label)+'">'+inner+'</svg>';}
+const FLAG='<g><rect width="30" height="18" rx="2" fill="#0b6b4a"/><circle cx="13.5" cy="9" r="5" fill="#c0392b"/></g>';
+
+function coverSVG(u){
+  const c=COV[state.color]||COV.green,name=state.name.trim(),G='url(#'+u+'au)';
+  let o='<defs><linearGradient id="'+u+'bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c.a+'"/><stop offset="1" stop-color="'+c.b+'"/></linearGradient>'
+   +'<linearGradient id="'+u+'au" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="480" y2="680"><stop offset="0" stop-color="#f3dc92"/><stop offset=".5" stop-color="#c9a24b"/><stop offset="1" stop-color="#ecd08a"/></linearGradient>'
+   +'<linearGradient id="'+u+'sp" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".4"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>'
+   +patternDef(state.pattern,u,'#e3c779',0.17)+'</defs>';
+  o+='<rect width="480" height="680" rx="14" fill="url(#'+u+'bg)"/><rect width="480" height="680" rx="14" fill="url(#'+u+'p)"/><rect width="26" height="680" fill="url(#'+u+'sp)"/>';
+  o+='<rect x="30" y="30" width="420" height="620" rx="8" fill="none" stroke="'+G+'" stroke-width="2.6"/><rect x="40" y="40" width="400" height="600" rx="5" fill="none" stroke="'+G+'" stroke-width=".9"/>';
+  o+='<g transform="translate(225 56)">'+FLAG+'</g>';
+  o+='<text x="240" y="100" text-anchor="middle" font-size="15" font-weight="700" letter-spacing="3" fill="'+G+'">CHUDLINGPONG BANGLADESH</text>';
+  o+='<text x="240" y="120" text-anchor="middle" font-size="10" letter-spacing="3.5" fill="'+G+'" opacity=".9">TRAVEL PASSPORT</text>';
+  o+='<text x="240" y="140" text-anchor="middle" font-size="12.5" fill="'+G+'" opacity=".9">ভ্রমণ পাসপোর্ট</text>';
+  o+='<circle cx="240" cy="290" r="114" fill="none" stroke="'+G+'" stroke-width="2"/><circle cx="240" cy="290" r="106" fill="none" stroke="'+G+'" stroke-width=".8"/>';
+  for(let i=0;i<28;i++){const a=i/28*Math.PI*2;o+='<circle cx="'+(240+Math.cos(a)*122).toFixed(1)+'" cy="'+(290+Math.sin(a)*122).toFixed(1)+'" r="1.7" fill="'+G+'"/>';}
+  o+='<g transform="translate(240 290) scale(1.25)">'+emblem(state.emblem,G,c.b)+'</g>';
+  o+='<text x="240" y="460" text-anchor="middle" font-size="25" font-weight="700" fill="'+G+'">আমার বাংলাদেশ ভ্রমণ পাসপোর্ট</text>';
+  o+='<text x="240" y="484" text-anchor="middle" font-size="14" letter-spacing="1" fill="'+G+'">My Bangladesh Travel Passport</text>';
+  o+='<path d="M150 502H330" stroke="'+G+'" stroke-width="1"/><path d="M240 497l5 5-5 5-5-5Z" fill="'+G+'"/>';
+  o+='<text x="240" y="532" text-anchor="middle" font-size="9" letter-spacing="'+ls(2)+'" fill="'+G+'" opacity=".85">'+esc(t('cv_traveler'))+'</text>';
+  if(name){const f=fitLines(name,330,22,11,1).fs;o+='<text x="240" y="560" text-anchor="middle" font-size="'+f.toFixed(1)+'" font-weight="700" fill="'+G+'">'+esc(name)+'</text>';}
+  else o+='<text x="240" y="560" text-anchor="middle" font-size="18" font-style="italic" fill="'+G+'" opacity=".5">'+esc(t('cv_ph'))+'</text>';
+  o+='<text x="240" y="598" text-anchor="middle" font-size="10" letter-spacing="'+ls(2)+'" fill="'+G+'" opacity=".9">'+esc(t('cv_pno'))+'  '+esc(state.pno)+'</text>';
+  o+='<text x="240" y="620" text-anchor="middle" font-size="8.5" fill="'+G+'" opacity=".75">'+esc(t('cv_note'))+'</text>';
+  return svgRoot(o,t('cover_aria'));}
+
+function pageBase(u,acc,title,pn){
+  let o='<defs><linearGradient id="'+u+'pp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fdf9ee"/><stop offset="1" stop-color="#f3e9cc"/></linearGradient>'
+   +'<pattern id="'+u+'gu" width="60" height="20" patternUnits="userSpaceOnUse"><path d="M0 10Q15-2 30 10T60 10M0 10Q15 22 30 10T60 10" fill="none" stroke="'+acc+'" stroke-width=".6" opacity=".09"/></pattern>'
+   +'<filter id="'+u+'gr" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="3" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 -1.55" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></defs>';
+  o+='<rect width="480" height="680" rx="10" fill="url(#'+u+'pp)"/><rect width="480" height="680" rx="10" fill="url(#'+u+'gu)"/>';
+  o+='<g transform="translate(240 360) scale(5.2) translate(-50 -50)" opacity=".05" fill="'+acc+'"><path d="'+MAPD+'"/></g>';
+  o+='<rect x="16" y="16" width="448" height="648" rx="6" fill="none" stroke="'+acc+'" stroke-width="1.8"/><rect x="22" y="22" width="436" height="636" rx="4" fill="none" stroke="'+acc+'" stroke-width=".6"/>';
+  o+='<text x="40" y="62" font-size="18" font-weight="700" fill="'+acc+'" letter-spacing="'+ls(1)+'">'+esc(title)+'</text>';
+  o+='<text x="440" y="60" text-anchor="end" font-size="8.5" letter-spacing=".9" fill="'+acc+'" opacity=".85">CHUDLINGPONG BANGLADESH</text><path d="M40 76H440" stroke="'+acc+'" stroke-width="1.2"/>';
+  o+='<text x="240" y="640" text-anchor="middle" font-size="7.5" fill="#6b6044">'+esc(t('pp_souv'))+'</text><text x="240" y="655" text-anchor="middle" font-size="10" fill="#6b6044">— '+esc(num(pn))+' —</text>';
+  return o;}
+
+function infoSVG(u){
+  const st=stats(),acc=(COV[state.color]||COV.green).a;let o=pageBase(u,acc,t('pp_info'),1);
+  const rows=[[t('pp_name'),state.name.trim()||t('pp_noname')],[t('pp_country'),t('f_country_val')],[t('pp_pno'),state.pno],[t('pp_created'),fmtDate(state.created)]];
+  rows.forEach((r,i)=>{const y=112+i*38;o+='<text x="40" y="'+y+'" font-size="9" fill="#7a6f55" letter-spacing="'+ls(.8)+'">'+esc(lang()==='en'?r[0].toUpperCase():r[0])+'</text><text x="40" y="'+(y+18)+'" font-size="15" font-weight="600" fill="#1c2923">'+esc(r[1])+'</text><path d="M40 '+(y+24)+'H440" stroke="#cdbf98" stroke-width=".7"/>';});
+  const C=2*Math.PI*50;
+  o+='<circle cx="104" cy="324" r="50" fill="none" stroke="#e4d9b8" stroke-width="11"/><circle cx="104" cy="324" r="50" fill="none" stroke="'+acc+'" stroke-width="11" stroke-dasharray="'+(st.pct/100*C).toFixed(1)+' '+C.toFixed(1)+'" transform="rotate(-90 104 324)"/>';
+  o+='<text x="104" y="332" text-anchor="middle" font-size="24" font-weight="700" fill="'+acc+'">'+esc(num(st.pct))+'%</text><text x="104" y="392" text-anchor="middle" font-size="10" fill="#6b6044">'+esc(t('pp_coll'))+'</text>';
+  const sr=[[t('s_sel'),num(st.n)+' / '+num(st.total)],[t('s_div'),num(st.divN)+' / '+num(DIVORDER.length)],[t('s_dist'),num(st.distN)+' / '+num(DIST_TOTAL)],[t('s_rem'),num(st.rem)]];
+  sr.forEach((r,i)=>{const y=292+i*28;o+='<text x="190" y="'+y+'" font-size="10.5" fill="#6b6044">'+esc(r[0])+'</text><text x="440" y="'+y+'" text-anchor="end" font-size="14" font-weight="700" fill="#1c2923">'+esc(r[1])+'</text><path d="M190 '+(y+7)+'H440" stroke="#d9cca4" stroke-width=".6"/>';});
+  o+='<text x="40" y="432" font-size="12" font-weight="700" fill="'+acc+'">'+esc(t('s_bydiv'))+'</text>';
+  DIVORDER.forEach((k,i)=>{const y=452+i*19,p=st.per[k],r=p.t?p.s/p.t:0;
+    o+='<text x="40" y="'+(y+6)+'" font-size="10" fill="#1c2923">'+esc(divName(k))+'</text><rect x="140" y="'+y+'" width="240" height="7" rx="3.5" fill="#e8dfc4"/><rect x="140" y="'+y+'" width="'+(240*r).toFixed(1)+'" height="7" rx="3.5" fill="'+acc+'"/><text x="440" y="'+(y+7)+'" text-anchor="end" font-size="9.5" fill="#6b6044">'+esc(num(p.s)+'/'+num(p.t))+'</text>';});
+  const dl=wrapW(t('disclaimer'),372,8.5);
+  o+='<rect x="40" y="'+(604-dl.length*5)+'" width="400" height="'+(dl.length*11+10)+'" rx="8" fill="#fff" fill-opacity=".55" stroke="'+acc+'" stroke-opacity=".4" stroke-dasharray="4 3"/>';
+  dl.forEach((l,i)=>{o+='<text x="240" y="'+(609-dl.length*5+10+i*11)+'" text-anchor="middle" font-size="8.5" fill="#5c5133">'+esc(l)+'</text>';});
+  return svgRoot(o,t('page_aria',1));}
+
+const PER=8;
+function stampPagesCount(){return Math.max(1,Math.ceil(selList().length/PER));}
+function pageCount(){return 2+stampPagesCount();}
+function stampPageSVG(pi,u){
+  const list=selList(),acc=(COV[state.color]||COV.green).a,chunk=list.slice(pi*PER,pi*PER+PER);
+  let o=pageBase(u,acc,t('pp_stamps'),pi+2);const cols=[135,345],rows=[150,281,412,543];
+  for(let k=0;k<PER;k++){const cx=cols[k%2],cy=rows[k>>1];
+    if(chunk[k])o+='<g transform="translate('+cx+' '+cy+')">'+stampG(chunk[k],state.sel[chunk[k].id],u+'gr')+'</g>';
+    else o+='<g transform="translate('+cx+' '+cy+')"><rect x="-85" y="-52" width="170" height="104" rx="10" fill="none" stroke="'+acc+'" stroke-opacity=".28" stroke-width="1.4" stroke-dasharray="5 5"/></g>';}
+  if(!list.length){o+='<rect x="70" y="300" width="340" height="86" rx="14" fill="#fcf8ec" fill-opacity=".94" stroke="'+acc+'" stroke-opacity=".5" stroke-dasharray="5 4"/><text x="240" y="337" text-anchor="middle" font-size="15" font-weight="700" fill="'+acc+'">'+esc(t('pp_empty_t'))+'</text><text x="240" y="362" text-anchor="middle" font-size="11" fill="#5c5133">'+esc(t('pp_empty_d'))+'</text>';}
+  return svgRoot(o,t('page_aria',pi+2));}
+function pageSVG(i,u){return i===0?coverSVG(u):i===1?infoSVG(u):stampPageSVG(i-2,u);}
+function logoSVG(){return '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#0f4d3a" stroke="#c8a24a" stroke-width="2"/><g transform="translate(9 8) scale(.3)"><path d="'+MAPD+'" fill="#e7c874"/><path d="'+RIVERS+'" fill="none" stroke="#0f4d3a" stroke-width="3.5" stroke-linecap="round"/></g><circle cx="35" cy="12" r="3.2" fill="#d9483b"/></svg>';}
+
+/* =====================================================================
+   6. RENDERING
+   ===================================================================== */
+function applyStaticI18n(){
+  document.documentElement.lang=lang();
+  $$('[data-i18n]').forEach(el=>{el.textContent=t(el.getAttribute('data-i18n'));});
+  $$('[data-i18n-ph]').forEach(el=>{el.setAttribute('placeholder',t(el.getAttribute('data-i18n-ph')));});
+  $$('[data-i18n-aria]').forEach(el=>{el.setAttribute('aria-label',t(el.getAttribute('data-i18n-aria')));});
+  const h=$('#heroH1'),s=$('#heroSub');h.textContent=t('hero_h1');s.textContent=t('hero_sub');
+  h.lang=lang()==='bn'?'bn':'en';s.lang=lang()==='bn'?'en':'bn';
+  const lb=$('#langBtn');lb.textContent=t('lang_btn');lb.setAttribute('aria-label',t('lang_aria'));lb.lang=lang()==='bn'?'en':'bn';
+  $('#discText').textContent=t('disclaimer');
+  document.title=lang()==='bn'?'চুডলিংপং বাংলাদেশ — ভ্রমণ পাসপোর্ট | CHUDLINGPONG BANGLADESH':'CHUDLINGPONG BANGLADESH — Travel Passport | ভ্রমণ পাসপোর্ট';
+}
+function renderOpts(){
+  $('#colorOpts').innerHTML=Object.keys(COV).map(k=>'<label class="opt"><input type="radio" name="color" value="'+k+'"'+(state.color===k?' checked':'')+'><span class="swatch" style="background:linear-gradient(135deg,'+COV[k].a+','+COV[k].b+')"></span><span class="otxt">'+esc(t('c_'+k))+'</span></label>').join('');
+  $('#patternOpts').innerHTML=PATTERNS.map(k=>'<label class="opt"><input type="radio" name="pattern" value="'+k+'"'+(state.pattern===k?' checked':'')+'><svg class="pv" viewBox="0 0 48 48" aria-hidden="true"><defs>'+patternDef(k,'o'+k,'#e3c779',0.7)+'</defs><rect width="48" height="48" rx="10" fill="'+COV[state.color].a+'"/><rect width="48" height="48" rx="10" fill="url(#o'+k+'p)"/></svg><span class="otxt">'+esc(t('p_'+k))+'</span></label>').join('');
+  $('#emblemOpts').innerHTML=EMBLEMS.map(k=>'<label class="opt"><input type="radio" name="emblem" value="'+k+'"'+(state.emblem===k?' checked':'')+'><svg class="pv" viewBox="-80 -80 160 160" aria-hidden="true"><rect x="-80" y="-80" width="160" height="160" rx="30" fill="'+COV[state.color].a+'"/><g transform="scale(.9)">'+emblem(k,'#e7c874',COV[state.color].b)+'</g></svg><span class="otxt">'+esc(t('e_'+k))+'</span></label>').join('');
+}
+function renderCounters(){$('#cTotal').textContent=num(DEST.length);$('#cSel').textContent=num(selList().length);}
+function renderHero(){
+  const pick=['coxs-bazar-sea-beach','sundarbans','sajek-valley','sreemangal-tea-gardens'].map((id,i)=>DID[id]||DEST[i]);
+  $('#heroVis').innerHTML='<div class="hero-cover">'+coverSVG('h')+'</div>'+pick.map((d,i)=>'<div class="hs hs'+(i+1)+'">'+thumbSVG(d)+'</div>').join('');
+}
+function renderStats(){
+  const s=stats(),card=(l,v,h)=>'<div class="sc'+(h?' hl':'')+'"><small>'+esc(l)+'</small><b>'+esc(v)+'</b></div>';
+  $('#statsHost').innerHTML='<div class="stat-cards">'+card(t('s_total'),num(s.total))+card(t('s_sel'),num(s.n),1)+card(t('s_pct'),num(s.pct)+'%')+card(t('s_div'),num(s.divN)+' / '+num(DIVORDER.length))+card(t('s_dist'),num(s.distN)+' / '+num(DIST_TOTAL))+card(t('s_rem'),num(s.rem))+'</div>'
+   +'<div class="prog"><div class="prog-top"><span>'+esc(t('s_progress'))+'</span><span>'+esc(num(s.pct))+'%</span></div><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+s.pct+'" aria-label="'+esc(t('s_progress'))+'"><i style="width:'+s.pct+'%"></i></div></div>'
+   +'<h3 style="font-size:18px;color:var(--green);margin:18px 0 10px">'+esc(t('s_bydiv'))+'</h3><div class="divbars">'+DIVORDER.map(k=>{const p=s.per[k],r=p.t?Math.round(p.s/p.t*100):0;return '<div class="row"><span>'+esc(divName(k))+'</span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+r+'" aria-label="'+esc(divName(k))+'"><i style="width:'+r+'%"></i></div><span>'+esc(num(p.s)+'/'+num(p.t))+'</span></div>';}).join('')+'</div>';
+}
+function clampPage(){const n=pageCount();if(view.page>n-1)view.page=n-1;if(view.page<0)view.page=0;}
+function renderPreview(animate){
+  clampPage();const host=$('#pageHost');host.innerHTML=pageSVG(view.page,'v');
+  const n=pageCount();$('#pgPrev').disabled=view.page===0;$('#pgNext').disabled=view.page>=n-1;
+  $('#pgInd').textContent=view.page===0?t('tab_cover'):t('pg_ind',num(view.page),num(n-1));
+  $('#tabCover').setAttribute('aria-selected',view.page===0);$('#tabPages').setAttribute('aria-selected',view.page!==0);
+  $('#pnoView').textContent=state.pno;
+  if(animate){host.classList.remove('flip');void host.offsetWidth;host.classList.add('flip');}
+}
+function fillSelects(){
+  const dv=$('#fDiv');dv.innerHTML='<option value="">'+esc(t('x_all_div'))+'</option>'+DIVORDER.map(k=>'<option value="'+k+'"'+(F.div===k?' selected':'')+'>'+esc(divName(k))+'</option>').join('');
+  const dl=[];(F.div?[F.div]:DIVORDER).forEach(k=>GEO[k].d.forEach(x=>dl.push(x)));
+  $('#fDist').innerHTML='<option value="">'+esc(t('x_all_dist'))+'</option>'+dl.map(x=>'<option value="'+esc(x[0])+'"'+(F.dist===x[0]?' selected':'')+'>'+esc(lang()==='bn'?x[1]:x[0])+'</option>').join('');
+  $('#fCat').innerHTML='<option value="">'+esc(t('x_all_cat'))+'</option>'+CATS.map(c=>'<option value="'+c[0]+'"'+(F.cat===c[0]?' selected':'')+'>'+esc(c[3]+' '+(lang()==='bn'?c[1]:c[2]))+'</option>').join('');
+  $('#fSort').innerHTML=[['def','x_sort_def'],['en','x_sort_en'],['bn','x_sort_bn']].map(x=>'<option value="'+x[0]+'"'+(F.sort===x[0]?' selected':'')+'>'+esc(t(x[1]))+'</option>').join('');
+}
+function filtered(){
+  const toks=norm(F.q).split(' ').filter(Boolean);
+  const list=DEST.filter(d=>{
+    if(F.div&&d.div!==F.div)return false;if(F.dist&&d.dk!==F.dist)return false;if(F.cat&&d.cat!==F.cat)return false;
+    if(F.only&&!state.sel[d.id])return false;for(let i=0;i<toks.length;i++){if(d.hay.indexOf(toks[i])<0)return false;}return true;});
+  if(F.sort==='en')list.sort((a,b)=>a.en.localeCompare(b.en,'en',{sensitivity:'base'}));
+  else if(F.sort==='bn')list.sort((a,b)=>a.bn.localeCompare(b.bn,'bn'));
+  else list.sort((a,b)=>{const x=DISTMAP[a.dk],y=DISTMAP[b.dk];return(x.di-y.di)||(x.xi-y.xi)||(a.idx-b.idx);});
+  return list;}
+function cardHTML(d){
+  const on=!!state.sel[d.id];
+  return '<li><label class="card'+(on?' sel':'')+'" data-id="'+d.id+'"><input type="checkbox" class="chk" data-id="'+d.id+'"'+(on?' checked':'')+' aria-label="'+esc(t('card_aria',nm(d)))+'"><span class="check" aria-hidden="true">✓</span><span class="thumb-box">'+thumbSVG(d)+'</span><span class="cbody"><span class="n1">'+esc(nm(d))+'</span><span class="n2">'+esc(nm2(d))+'</span><span class="meta">📍 '+esc(t('card_div',distName(d),divName(d.div)))+'</span><span class="desc" lang="en">'+esc(d.desc)+'</span><span class="chips"><span class="chip">'+d.ic+' '+esc(catName(d.cat))+'</span>'+(d.isD?'<span class="chip d">'+esc(t('card_d'))+'</span>':'')+'</span></span></label></li>';}
+function renderGrid(keep){
+  cur=filtered();shown=keep?Math.min(Math.max(shown,CHUNK),cur.length):Math.min(CHUNK,cur.length);
+  $('#grid').innerHTML=cur.slice(0,shown).map(cardHTML).join('');updateGridMeta();}
+function updateGridMeta(){
+  $('#resCount').textContent=t('x_count',num(Math.min(shown,cur.length)),num(cur.length));
+  const e=$('#empty'),none=cur.length===0;e.hidden=!none;$('#grid').hidden=none;
+  if(none){const onlyEmpty=F.only&&!selList().length&&!F.q&&!F.div&&!F.dist&&!F.cat;$('#emptyT').textContent=onlyEmpty?t('x_empty_sel'):t('x_empty_t');$('#emptyD').textContent=onlyEmpty?'':t('x_empty_d');}
+  const mb=$('#btnMore'),left=cur.length-shown;mb.hidden=left<=0;if(left>0)mb.textContent=t('x_more',num(left));
+  $('#fQClear').hidden=!F.q;
+}
+function showMore(){const from=shown;shown=Math.min(cur.length,shown+CHUNK);$('#grid').insertAdjacentHTML('beforeend',cur.slice(from,shown).map(cardHTML).join(''));updateGridMeta();}
+function renderAll(){applyStaticI18n();renderOpts();fillSelects();renderCounters();renderHero();renderStats();renderPreview();renderGrid(true);updateStoreWarn();}
+
+/* =====================================================================
+   7. ACTIONS
+   ===================================================================== */
+function refreshAfterSelection(){renderCounters();renderStats();renderPreview();renderHero();scheduleSave();}
+function stampFx(d){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const fx=$('#fx');fx.innerHTML='<svg viewBox="-100 -64 200 128" font-family="'+FFA+'">'+stampG(d,Date.now())+'</svg>';fx.classList.remove('on');void fx.offsetWidth;fx.classList.add('on');
+  clearTimeout(stampFx.h);stampFx.h=setTimeout(()=>{fx.classList.remove('on');fx.innerHTML='';},1050);}
+function setSelected(id,on){
+  const d=DID[id];if(!d)return;if(on===!!state.sel[id])return;
+  if(on){state.sel[id]=Date.now();}else delete state.sel[id];
+  const card=$('.card[data-id="'+id+'"]');
+  if(F.only&&!on){refreshAfterSelection();renderGrid(true);}
+  else{if(card){card.classList.toggle('sel',on);const c=$('.chk',card);if(c)c.checked=on;$('.thumb-box',card).innerHTML=thumbSVG(d);if(on){card.classList.remove('pop');void card.offsetWidth;card.classList.add('pop');}}refreshAfterSelection();}
+  if(on){stampFx(d);toast(t('m_coll',nm(d)));}else toast(t('m_rem',nm(d)));
+}
+function selectAllResults(){
+  if(!cur.length){toast(t('m_none'),true);return;}
+  let added=0;const now=Date.now();cur.forEach(d=>{if(!state.sel[d.id]){state.sel[d.id]=now;added++;}});
+  refreshAfterSelection();renderGrid(true);toast(t('m_selall',num(added)));}
+function openDlg(d){if(typeof d.showModal==='function'){if(!d.open)d.showModal();}else d.setAttribute('open','');}
+function closeDlg(d){if(typeof d.close==='function'){if(d.open)d.close();}else d.removeAttribute('open');}
+function confirmBox(title,desc){return new Promise(res=>{
+  const d=$('#dlgConfirm');$('#cfT').textContent=title;$('#cfD').textContent=desc;let done=false;
+  const fin=v=>{if(done)return;done=true;$('#cfYes').onclick=$('#cfNo').onclick=null;d.onclose=null;closeDlg(d);res(v);};
+  $('#cfYes').onclick=()=>fin(true);$('#cfNo').onclick=()=>fin(false);d.onclose=()=>fin(false);openDlg(d);});}
+async function clearAll(){
+  if(!selList().length){toast(t('m_nostamps'));return;}
+  if(!await confirmBox(t('cf_clear_t'),t('cf_clear_d')))return;
+  state.sel={};refreshAfterSelection();renderGrid(true);persist();updateStoreWarn();toast(t('m_cleared'));}
+async function resetPassport(){
+  if(!await confirmBox(t('cf_reset_t'),t('cf_reset_d')))return;
+  state.sel={};view.page=0;refreshAfterSelection();renderGrid(true);persist();updateStoreWarn();toast(t('m_reset'));}
+async function newPassport(){
+  if(!await confirmBox(t('cf_new_t'),t('cf_new_d')))return;
+  wipeStore();const l=state.lang;state=defaultState(l);state.guide=true;view.page=0;persist();renderAll();toast(t('m_new'));}
+function savePassport(){if(persist()){toast(t('m_saved'));}else toast(t('m_save_fail'),true);updateStoreWarn();}
+function listText(){return selList().map((d,i)=>(i+1)+'. '+d.bn+' / '+d.en+' — '+d.dk+', '+GEO[d.div].en).join('\n');}
+function shareText(){
+  const l=selList();if(!l.length)return t('sh_none')+'\n\n'+t('disclaimer');
+  const names=l.slice(0,15).map(d=>'• '+nm(d)).join('\n'),more=l.length>15?'\n'+t('sh_more',num(l.length-15)):'';
+  return t('sh_title',num(l.length),num(DEST.length))+'\n'+names+more+'\n\n'+t('disclaimer');}
+async function copyText(txt,okMsg){
+  try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(txt);toast(okMsg);return true;}}catch(e){}
+  try{const ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;left:-9999px;top:0';document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();if(ok){toast(okMsg);return true;}}catch(e){}
+  toast(t('m_copy_fail'),true);return false;}
+async function sharePassport(){
+  const txt=shareText();
+  if(navigator.share){try{await navigator.share({title:'CHUDLINGPONG BANGLADESH',text:txt});toast(t('m_shared'));return;}catch(e){if(e&&e.name==='AbortError')return;}}
+  copyText(txt,t('m_copied'));}
+function copyList(){const l=listText();if(!l){toast(t('m_copy_empty'),true);return;}copyText(l,t('m_copied'));}
+
+/* ---- Export ---- */
+function openExport(){
+  const n=selList().length;$('#exIntro').textContent=t('ex_intro',num(n),num(pageCount()));
+  if(!n)toast(t('m_empty_export'));openDlg($('#dlgExport'));}
+function buildPrint(){
+  const root=$('#printRoot');if(root.dataset.b==='1')return;let h='';const n=pageCount();
+  for(let i=0;i<n;i++)h+='<section class="print-page">'+pageSVG(i,'p'+i)+'</section>';
+  root.innerHTML=h;root.dataset.b='1';}
+function clearPrint(){const r=$('#printRoot');r.innerHTML='';r.dataset.b='0';}
+function doPrint(){
+  closeDlg($('#dlgExport'));buildPrint();toast(t('m_print'));
+  setTimeout(()=>{try{window.print();}catch(e){toast(t('m_png_fail'),true);}},250);}
+function svgToPng(svg,scale){return new Promise((res,rej)=>{
+  const img=new Image();
+  img.onload=()=>{try{const c=document.createElement('canvas');c.width=480*scale;c.height=680*scale;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(img,0,0,c.width,c.height);
+    c.toBlob(b=>b?res(b):rej(new Error('blob')),'image/png');}catch(e){rej(e);}};
+  img.onerror=()=>rej(new Error('image'));
+  img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);});}
+function downloadBlob(blob,name){const a=document.createElement('a');const url=URL.createObjectURL(blob);a.href=url;a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url);},3000);}
+const pageName=i=>'chudlingpong-bangladesh-passport-'+(i===0?'cover':'page-'+String(i).padStart(2,'0'))+'.png';
+async function exportPng(i){const blob=await svgToPng(pageSVG(i,'x'+i),3);downloadBlob(blob,pageName(i));}
+async function exportPngOne(){try{await exportPng(view.page);toast(t('m_png_ok'));}catch(e){toast(t('m_png_fail'),true);}}
+async function exportPngAll(){
+  const n=pageCount();toast(t('m_png_all',num(n)));
+  try{for(let i=0;i<n;i++){await exportPng(i);await new Promise(r=>setTimeout(r,450));}toast(t('m_png_ok'));}catch(e){toast(t('m_png_fail'),true);}}
+
+/* ---- Filters ---- */
+const onQ=debounce(()=>{F.q=$('#fQ').value;renderGrid();},140);
+function resetFilters(){F.q='';F.div='';F.dist='';F.cat='';F.only=false;F.sort='def';$('#fQ').value='';$('#fOnly').checked=false;fillSelects();renderGrid();}
+function setPage(p){const old=view.page;view.page=p;clampPage();renderPreview(old!==view.page);}
+
+/* =====================================================================
+   8. EVENTS & INIT
+   ===================================================================== */
+function bind(){
+  $('#langBtn').addEventListener('click',()=>{state.lang=lang()==='bn'?'en':'bn';persist();renderAll();});
+  $('#navBtn').addEventListener('click',()=>{const n=$('#nav'),o=!n.classList.contains('open');n.classList.toggle('open',o);$('#navBtn').setAttribute('aria-expanded',o);});
+  $('#nav').addEventListener('click',e=>{if(e.target.closest('a')){$('#nav').classList.remove('open');$('#navBtn').setAttribute('aria-expanded','false');}});
+  document.addEventListener('click',e=>{const a=e.target.closest('a[data-focus]');if(a)setTimeout(()=>{const i=$('#inName');if(i)i.focus({preventScroll:true});},450);});
+  $('#inName').addEventListener('input',e=>{const v=cleanName(e.target.value);state.name=v;renderPreview();renderHero();scheduleSave();});
+  $('#builder').addEventListener('change',e=>{const n=e.target;if(n.name==='color'&&COV[n.value])state.color=n.value;else if(n.name==='pattern'&&PATTERNS.includes(n.value))state.pattern=n.value;else if(n.name==='emblem'&&EMBLEMS.includes(n.value))state.emblem=n.value;else return;
+    renderOpts();renderPreview(false);renderHero();scheduleSave();
+    const again=$('input[name="'+n.name+'"]:checked');if(again)again.focus();});
+  $('#btnSave').addEventListener('click',savePassport);$('#btnReset').addEventListener('click',resetPassport);$('#btnNew').addEventListener('click',newPassport);
+  $('#btnGuide').addEventListener('click',()=>openDlg($('#dlgGuide')));
+  $('#tabCover').addEventListener('click',()=>setPage(0));$('#tabPages').addEventListener('click',()=>setPage(view.page===0?1:view.page));
+  $('#pgPrev').addEventListener('click',()=>setPage(view.page-1));$('#pgNext').addEventListener('click',()=>setPage(view.page+1));
+  $('#stage').addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();setPage(view.page+1);}else if(e.key==='ArrowLeft'){e.preventDefault();setPage(view.page-1);}});
+  $('#btnDownload').addEventListener('click',openExport);$('#btnShare').addEventListener('click',sharePassport);$('#btnCopy').addEventListener('click',copyList);
+  $('#exPdf').addEventListener('click',doPrint);$('#exPng1').addEventListener('click',exportPngOne);$('#exPngAll').addEventListener('click',exportPngAll);$('#exClose').addEventListener('click',()=>closeDlg($('#dlgExport')));
+  $('#gGo').addEventListener('click',()=>closeDlg($('#dlgGuide')));
+  $('#dlgGuide').addEventListener('close',()=>{if(!state.guide){state.guide=true;scheduleSave();}});
+  $$('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)closeDlg(d);}));
+  $('#fQ').addEventListener('input',onQ);
+  $('#fQClear').addEventListener('click',()=>{$('#fQ').value='';F.q='';renderGrid();$('#fQ').focus();});
+  $('#btnClearQ').addEventListener('click',()=>{$('#fQ').value='';F.q='';renderGrid();});
+  $('#fDiv').addEventListener('change',e=>{F.div=e.target.value;F.dist='';fillSelects();renderGrid();});
+  $('#fDist').addEventListener('change',e=>{F.dist=e.target.value;renderGrid();});
+  $('#fCat').addEventListener('change',e=>{F.cat=e.target.value;renderGrid();});
+  $('#fSort').addEventListener('change',e=>{F.sort=e.target.value;renderGrid();});
+  $('#fOnly').addEventListener('change',e=>{F.only=e.target.checked;renderGrid();});
+  $('#btnSelAll').addEventListener('click',selectAllResults);$('#btnClearAll').addEventListener('click',clearAll);
+  $('#btnResetF').addEventListener('click',resetFilters);$('#btnEmptyReset').addEventListener('click',resetFilters);$('#btnMore').addEventListener('click',showMore);
+  $('#grid').addEventListener('change',e=>{const c=e.target;if(c&&c.classList&&c.classList.contains('chk'))setSelected(c.getAttribute('data-id'),c.checked);});
+  const tt=$('#toTop');window.addEventListener('scroll',()=>{tt.hidden=window.scrollY<600;},{passive:true});
+  tt.addEventListener('click',()=>window.scrollTo({top:0}));
+  window.addEventListener('beforeprint',buildPrint);window.addEventListener('afterprint',clearPrint);
+}
+function init(){
+  $('#logoMark').innerHTML=logoSVG();
+  $('#inName').value=state.name;
+  bind();renderAll();
+  if(!state.guide)setTimeout(()=>{if(!state.guide)openDlg($('#dlgGuide'));},900);
+}
+init();
+})();
+</script>
+</body>
+</html>
